@@ -106133,23 +106133,86 @@
     },
     {
       "id": "pkg:chord/.#NativeWatchable",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:e004981ce4db2b8e22ebb85c1d6960f7236f1f9ee6a2d2837a1207bbab45e90b"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:e004981ce4db2b8e22ebb85c1d6960f7236f1f9ee6a2d2837a1207bbab45e90b",
+      "rationale": "Derived by the interface gap detector: NativeWatchable is Go chord/watch.go#NativeWatchable (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/watch.go#NativeWatchable"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "public-api-tested",
+        "shape": "complete"
+      },
+      "production": [
+        "public-api:chord/watch.go#NativeWatchable"
+      ],
+      "evidence": [
+        "test:chord/watch_upstream_test.go#TestNativeWatchableWatchHoldsTheCurrentValueThenOneFramePerNewValueAndEndsWithItsContext"
+      ],
+      "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
     {
       "id": "pkg:chord/.#NativeWatchable::property:value",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:6b6dc5080cb94abee579e0a7dce40a0e29358c6286c4040d4fa8540aced7613e"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:6b6dc5080cb94abee579e0a7dce40a0e29358c6286c4040d4fa8540aced7613e",
+      "rationale": "Derived by the interface gap detector: NativeWatchable::property:value is Go chord/watch.go#NativeWatchable.Value (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/watch.go#NativeWatchable.Value"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "public-api-tested",
+        "shape": "complete"
+      },
+      "production": [
+        "public-api:chord/watch.go#NativeWatchable.Value"
+      ],
+      "evidence": [
+        "test:chord/watch_upstream_test.go#TestNativeWatchableWatchHoldsTheCurrentValueThenOneFramePerNewValueAndEndsWithItsContext"
+      ]
     },
     {
       "id": "pkg:chord/.#NativeWatchable::property:watch",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:ce87ed08a59fcbf1a7eee8b6e17395142b31dd05605bf7e4b476a8586bd5540f"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:ce87ed08a59fcbf1a7eee8b6e17395142b31dd05605bf7e4b476a8586bd5540f",
+      "rationale": "Derived by the interface gap detector: NativeWatchable::property:watch is Go chord/watch.go#NativeWatchable.Watch (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/watch.go#NativeWatchable.Watch"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "public-api-tested",
+        "shape": "complete"
+      },
+      "production": [
+        "public-api:chord/watch.go#NativeWatchable.Watch"
+      ],
+      "evidence": [
+        "test:chord/watch_upstream_test.go#TestNativeWatchableWatchHoldsTheCurrentValueThenOneFramePerNewValueAndEndsWithItsContext"
+      ],
+      "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
     {
       "id": "pkg:chord/.#NativeWatchable::property:watch::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:6af8c8dd181b4d724dc23257697ab3126393cf9ec48a77f172b60f2dd79fc3e9"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:6af8c8dd181b4d724dc23257697ab3126393cf9ec48a77f172b60f2dd79fc3e9",
+      "rationale": "Derived by the interface gap detector: NativeWatchable::property:watch::call:0 is Go chord/watch.go#NativeWatchable.Watch (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/watch.go#NativeWatchable.Watch"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "public-api-tested",
+        "shape": "complete"
+      },
+      "production": [
+        "public-api:chord/watch.go#NativeWatchable.Watch"
+      ],
+      "evidence": [
+        "test:chord/watch_upstream_test.go#TestNativeWatchableWatchHoldsTheCurrentValueThenOneFramePerNewValueAndEndsWithItsContext"
+      ],
+      "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
     {
       "id": "pkg:chord/.#NativeWatchHandle",
