@@ -147594,8 +147594,8 @@
       ],
       "evidence": [
         "test:coding/loaded_extensions_runtime_test.go#TestSessionRunnerBindsTheRuntimeTheLoadedExtensionsShare",
-        "test:coding/resource_loader_extend_gaps_test.go#TestResourceLoaderReportsTheLoadAndAppliesExtensionSourceInfo",
-        "test:coding/resource_loader_extend_test.go#TestDefaultResourceLoaderStartsWithoutThemesAndExtensions"
+        "test:coding/resource_loader_agent_dir_test.go#TestResourceLoaderWithoutAnAgentDirWritesNothingIntoTheProcessDirectory",
+        "test:coding/resource_loader_extend_gaps_test.go#TestResourceLoaderReportsTheLoadAndAppliesExtensionSourceInfo"
       ]
     },
     {
@@ -147616,8 +147616,8 @@
       ],
       "evidence": [
         "test:coding/loaded_extensions_runtime_test.go#TestSessionRunnerBindsTheRuntimeTheLoadedExtensionsShare",
-        "test:coding/resource_loader_extend_gaps_test.go#TestResourceLoaderReportsTheLoadAndAppliesExtensionSourceInfo",
-        "test:coding/resource_loader_extend_test.go#TestDefaultResourceLoaderStartsWithoutThemesAndExtensions"
+        "test:coding/resource_loader_agent_dir_test.go#TestResourceLoaderWithoutAnAgentDirWritesNothingIntoTheProcessDirectory",
+        "test:coding/resource_loader_extend_gaps_test.go#TestResourceLoaderReportsTheLoadAndAppliesExtensionSourceInfo"
       ]
     },
     {
@@ -167387,8 +167387,8 @@
       ],
       "evidence": [
         "test:coding/create_agent_session_test.go#TestCreateAgentSessionReturnsTheLoadersExtensionsResult",
-        "test:coding/resource_loader_extend_gaps_test.go#TestResourceLoaderReportsTheLoadAndAppliesExtensionSourceInfo",
-        "test:coding/resource_loader_extend_test.go#TestDefaultResourceLoaderStartsWithoutThemesAndExtensions"
+        "test:coding/resource_loader_agent_dir_test.go#TestResourceLoaderWithoutAnAgentDirWritesNothingIntoTheProcessDirectory",
+        "test:coding/resource_loader_extend_gaps_test.go#TestResourceLoaderReportsTheLoadAndAppliesExtensionSourceInfo"
       ]
     },
     {
@@ -175202,9 +175202,9 @@
         "call:internal/packagemanager/install_failure_warning.go#DescribePackageInstallFailure"
       ],
       "evidence": [
+        "test:coding/cli/package_temporary_upstream_test.go#TestTemporaryGitInstallAndCleanup",
         "test:internal/packagemanager/managed_root_cwd_test.go#TestEmptyAgentDirNeverWritesIntoTheProcessDirectory",
-        "test:internal/packagemanager/resolve_gaps_test.go#TestResolveExtensionSourcesReportsATemporarySourceThatFailsToInstall",
-        "test:internal/packagemanager/resolve_gaps_test.go#TestResolveSkipsAPackageSourceThatFailsToInstallAndReportsIt"
+        "test:internal/packagemanager/resolve_gaps_test.go#TestResolveExtensionSourcesReportsATemporarySourceThatFailsToInstall"
       ]
     },
     {
@@ -175245,6 +175245,7 @@
         "call:internal/packagemanager/install_failure_warning.go#DescribePackageInstallFailure"
       ],
       "evidence": [
+        "test:coding/cli/package_temporary_upstream_test.go#TestTemporaryGitInstallAndCleanup",
         "test:internal/packagemanager/resolve_gaps_test.go#TestResolveExtensionSourcesReportsATemporarySourceThatFailsToInstall",
         "test:internal/packagemanager/resolve_gaps_test.go#TestResolveSkipsAPackageSourceThatFailsToInstallAndReportsIt"
       ]
@@ -175266,6 +175267,7 @@
         "call:internal/packagemanager/install_failure_warning.go#DescribePackageInstallFailure"
       ],
       "evidence": [
+        "test:coding/cli/package_temporary_upstream_test.go#TestTemporaryGitInstallAndCleanup",
         "test:internal/packagemanager/resolve_gaps_test.go#TestResolveExtensionSourcesReportsATemporarySourceThatFailsToInstall",
         "test:internal/packagemanager/resolve_gaps_test.go#TestResolveSkipsAPackageSourceThatFailsToInstallAndReportsIt"
       ]
@@ -180598,7 +180600,8 @@
         "call:coding/cli/cli_session_factory.go#cliSessionFactory.create"
       ],
       "evidence": [
-        "test:coding/resource_loader_extend_test.go#TestResourceLoaderInterfaceExtendsAndReloads"
+        "test:coding/resource_loader_extend_test.go#TestResourceLoaderInterfaceExtendsAndReloads",
+        "test:coding/resource_loader_packages_test.go#TestDefaultLoaderInstallsMissingNPMPackages"
       ]
     },
     {
@@ -180618,7 +180621,8 @@
         "call:coding/cli/cli_session_factory.go#cliSessionFactory.create"
       ],
       "evidence": [
-        "test:coding/resource_loader_extend_test.go#TestResourceLoaderInterfaceExtendsAndReloads"
+        "test:coding/resource_loader_extend_test.go#TestResourceLoaderInterfaceExtendsAndReloads",
+        "test:coding/resource_loader_packages_test.go#TestDefaultLoaderInstallsMissingNPMPackages"
       ]
     },
     {
