@@ -3063,6 +3063,15 @@
       "rationale": "Main Screen input, message/tool rendering, terminal integration, or selected presentation."
     },
     {
+      "path": "packages/coding-agent/test/exec.test.ts",
+      "upstreamTestHash": "sha256:36840712b5b038c4d162d13c52a20bc098c2734e7bf07e3c6a0a5337b71f4157",
+      "area": "tools",
+      "tags": [
+        "hot-path"
+      ],
+      "rationale": "Tool execution on coding turns: pi.exec spawn errors reach the extension caller; area and tags follow the sibling tool tests (Pi c60de42e9)."
+    },
+    {
       "path": "packages/coding-agent/test/experimental.test.ts",
       "upstreamTestHash": "sha256:4abd9d1a639085e0aa7607239494e5f0de8fa07d7ee6b322bbcc199c276bc7c2",
       "area": "cli",
@@ -3090,6 +3099,15 @@
       "rationale": "New in Pi 1.4.0+74f46864; area and tags follow the sibling tests under packages/coding-agent/test/ until the production-path review."
     },
     {
+      "path": "packages/coding-agent/test/export-html-deep-tree.test.ts",
+      "upstreamTestHash": "sha256:2572f25526bb595af772f056d75afbcb02252e00ce557d07e0f5046a73d30f44",
+      "area": "cli",
+      "tags": [
+        "hot-path"
+      ],
+      "rationale": "Exported HTML page: a deep session tree renders without stack overflow; area and tags follow the sibling export-html tests (Pi 1c720d285)."
+    },
+    {
       "path": "packages/coding-agent/test/export-html-skill-block.test.ts",
       "upstreamTestHash": "sha256:1050bd9e8e0ba42bf8d3a35ad596fc0364d4621dd576ff26a93e6c6987a37f3f",
       "area": "cli",
@@ -3097,6 +3115,15 @@
         "hot-path"
       ],
       "rationale": "CLI startup, selected execution mode, settings, or command routing."
+    },
+    {
+      "path": "packages/coding-agent/test/export-html-system-messages.test.ts",
+      "upstreamTestHash": "sha256:3e3ff75b664e951785e5209dc5eb600a01d7ba215410d6b349934cd258f213a1",
+      "area": "cli",
+      "tags": [
+        "hot-path"
+      ],
+      "rationale": "Exported HTML page: system messages render in the transcript; area and tags follow the sibling export-html tests (Pi 9359adf0c)."
     },
     {
       "path": "packages/coding-agent/test/export-html-whitespace.test.ts",
@@ -3448,6 +3475,15 @@
       "rationale": "Extension API, discovery, runtime callbacks, or Resources on startup and turns."
     },
     {
+      "path": "packages/coding-agent/test/login-dialog-device-code.test.ts",
+      "upstreamTestHash": "sha256:b1705be4371dc4a040f7e65ce23cf134e54ba77aa4e3f0788285624eb21a213e",
+      "area": "tui",
+      "tags": [
+        "hot-path"
+      ],
+      "rationale": "Main Screen login dialog: device-code browser and clipboard confirm actions; area and tags follow the sibling tui dialog tests (Pi 7151099d0)."
+    },
+    {
       "path": "packages/coding-agent/test/management-http.test.ts",
       "upstreamTestHash": "sha256:2b0e2f0e179c2ddbe4aa91540728265d8703167f482375e519aebe459c4f406b",
       "area": "cli",
@@ -3608,6 +3644,15 @@
         "hot-path"
       ],
       "rationale": "Selected Provider catalog, credentials, request conversion, streaming, replay, or error handling."
+    },
+    {
+      "path": "packages/coding-agent/test/model-search.test.ts",
+      "upstreamTestHash": "sha256:f328579bf7f746a8d69804753d8f0be7236c5198e89d2e802a0879318869cf80",
+      "area": "providers",
+      "tags": [
+        "hot-path"
+      ],
+      "rationale": "Selected Provider model selector search ranking; area and tags follow model-selector.test.ts."
     },
     {
       "path": "packages/coding-agent/test/model-selector.test.ts",
@@ -4152,6 +4197,15 @@
         "hot-path"
       ],
       "rationale": "Main Screen input, message/tool rendering, terminal integration, or selected presentation."
+    },
+    {
+      "path": "packages/coding-agent/test/shell-kill-process-tree.test.ts",
+      "upstreamTestHash": "sha256:e0e8c558ecae290228fdf31c717910a3b5965b95384e9a2eb1c2a77864bfb62a",
+      "area": "tools",
+      "tags": [
+        "hot-path"
+      ],
+      "rationale": "Tool cancellation: killing a bash tool process tree, including SIGSTOP on macOS; area and tags follow the sibling shell tests (Pi 27cc6bfc0)."
     },
     {
       "path": "packages/coding-agent/test/shell-path-exists.test.ts",

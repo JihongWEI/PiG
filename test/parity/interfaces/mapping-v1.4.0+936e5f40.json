@@ -24872,13 +24872,45 @@
     },
     {
       "id": "pkg:ai/.#OAuthDeviceCodeInfo",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:364d68137f7839e4e31033022fd1383a52f515a82c5c3c9123f0b8dec7639ef4"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:364d68137f7839e4e31033022fd1383a52f515a82c5c3c9123f0b8dec7639ef4",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo is Go ai/oauth_types.go#OAuthDeviceCodeInfo (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/auth_native_login.go#oauthNativeLogin"
+      ],
+      "evidence": [
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotContinuesPolicyUpdatesAfterTransportFailureUpstream",
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotPollTimingUpstream",
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotReportsDeviceCodeDetailsUpstream"
+      ]
     },
     {
       "id": "pkg:ai/.#OAuthDeviceCodeInfo::property:copyCodeOnConfirm",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:dde88e931d7274ea63a1e9c2e20bcb7c987cc278f9a345279ee2c9bb8f4bb201"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:dde88e931d7274ea63a1e9c2e20bcb7c987cc278f9a345279ee2c9bb8f4bb201",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo::property:copyCodeOnConfirm is Go ai/oauth_types.go#OAuthDeviceCodeInfo.CopyCodeOnConfirm (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo.CopyCodeOnConfirm"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ],
+      "evidence": [
+        "reach:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ]
     },
     {
       "id": "pkg:ai/.#OAuthDeviceCodeInfo::property:expiresInSeconds",
@@ -24924,8 +24956,23 @@
     },
     {
       "id": "pkg:ai/.#OAuthDeviceCodeInfo::property:openBrowserOnConfirm",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:27bf330b0426999dd1c906738f0861c3554ff638e0286b082e47c7d6b4bffb54"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:27bf330b0426999dd1c906738f0861c3554ff638e0286b082e47c7d6b4bffb54",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo::property:openBrowserOnConfirm is Go ai/oauth_types.go#OAuthDeviceCodeInfo.OpenBrowserOnConfirm (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo.OpenBrowserOnConfirm"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ],
+      "evidence": [
+        "reach:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ]
     },
     {
       "id": "pkg:ai/.#OAuthDeviceCodeInfo::property:userCode",
@@ -68806,13 +68853,45 @@
     },
     {
       "id": "pkg:ai/compat#OAuthDeviceCodeInfo",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:364d68137f7839e4e31033022fd1383a52f515a82c5c3c9123f0b8dec7639ef4"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:364d68137f7839e4e31033022fd1383a52f515a82c5c3c9123f0b8dec7639ef4",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo is Go ai/oauth_types.go#OAuthDeviceCodeInfo (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/auth_native_login.go#oauthNativeLogin"
+      ],
+      "evidence": [
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotContinuesPolicyUpdatesAfterTransportFailureUpstream",
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotPollTimingUpstream",
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotReportsDeviceCodeDetailsUpstream"
+      ]
     },
     {
       "id": "pkg:ai/compat#OAuthDeviceCodeInfo::property:copyCodeOnConfirm",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:dde88e931d7274ea63a1e9c2e20bcb7c987cc278f9a345279ee2c9bb8f4bb201"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:dde88e931d7274ea63a1e9c2e20bcb7c987cc278f9a345279ee2c9bb8f4bb201",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo::property:copyCodeOnConfirm is Go ai/oauth_types.go#OAuthDeviceCodeInfo.CopyCodeOnConfirm (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo.CopyCodeOnConfirm"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ],
+      "evidence": [
+        "reach:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ]
     },
     {
       "id": "pkg:ai/compat#OAuthDeviceCodeInfo::property:expiresInSeconds",
@@ -68858,8 +68937,23 @@
     },
     {
       "id": "pkg:ai/compat#OAuthDeviceCodeInfo::property:openBrowserOnConfirm",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:27bf330b0426999dd1c906738f0861c3554ff638e0286b082e47c7d6b4bffb54"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:27bf330b0426999dd1c906738f0861c3554ff638e0286b082e47c7d6b4bffb54",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo::property:openBrowserOnConfirm is Go ai/oauth_types.go#OAuthDeviceCodeInfo.OpenBrowserOnConfirm (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo.OpenBrowserOnConfirm"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ],
+      "evidence": [
+        "reach:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ]
     },
     {
       "id": "pkg:ai/compat#OAuthDeviceCodeInfo::property:userCode",
@@ -84400,13 +84494,45 @@
     },
     {
       "id": "pkg:ai/oauth#OAuthDeviceCodeInfo",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:364d68137f7839e4e31033022fd1383a52f515a82c5c3c9123f0b8dec7639ef4"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:364d68137f7839e4e31033022fd1383a52f515a82c5c3c9123f0b8dec7639ef4",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo is Go ai/oauth_types.go#OAuthDeviceCodeInfo (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/auth_native_login.go#oauthNativeLogin"
+      ],
+      "evidence": [
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotContinuesPolicyUpdatesAfterTransportFailureUpstream",
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotPollTimingUpstream",
+        "test:ai/github_copilot_oauth_upstream_test.go#TestCopilotReportsDeviceCodeDetailsUpstream"
+      ]
     },
     {
       "id": "pkg:ai/oauth#OAuthDeviceCodeInfo::property:copyCodeOnConfirm",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:dde88e931d7274ea63a1e9c2e20bcb7c987cc278f9a345279ee2c9bb8f4bb201"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:dde88e931d7274ea63a1e9c2e20bcb7c987cc278f9a345279ee2c9bb8f4bb201",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo::property:copyCodeOnConfirm is Go ai/oauth_types.go#OAuthDeviceCodeInfo.CopyCodeOnConfirm (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo.CopyCodeOnConfirm"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ],
+      "evidence": [
+        "reach:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ]
     },
     {
       "id": "pkg:ai/oauth#OAuthDeviceCodeInfo::property:expiresInSeconds",
@@ -84452,8 +84578,23 @@
     },
     {
       "id": "pkg:ai/oauth#OAuthDeviceCodeInfo::property:openBrowserOnConfirm",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:27bf330b0426999dd1c906738f0861c3554ff638e0286b082e47c7d6b4bffb54"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:27bf330b0426999dd1c906738f0861c3554ff638e0286b082e47c7d6b4bffb54",
+      "rationale": "Derived by the interface gap detector: OAuthDeviceCodeInfo::property:openBrowserOnConfirm is Go ai/oauth_types.go#OAuthDeviceCodeInfo.OpenBrowserOnConfirm (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/oauth_types.go#OAuthDeviceCodeInfo.OpenBrowserOnConfirm"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ],
+      "evidence": [
+        "reach:coding/extension/host/subprocess/oauth_bridge.go#Host.handleOAuthCallback"
+      ]
     },
     {
       "id": "pkg:ai/oauth#OAuthDeviceCodeInfo::property:userCode",
@@ -133229,13 +133370,47 @@
     },
     {
       "id": "pkg:coding-agent/.#AssistantMessageComponent",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:e93b3d09ae0f3329855952f2ef4782269b83c936d9d691b5f641a4780049c42b"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:e93b3d09ae0f3329855952f2ef4782269b83c936d9d691b5f641a4780049c42b",
+      "rationale": "Derived by the interface gap detector: AssistantMessageComponent is Go tui/assistant_message_block.go#AssistantMessageComponent (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "tui/assistant_message_block.go#AssistantMessageComponent"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:tui/assistant_message_block.go#NewAssistantMessageComponent"
+      ],
+      "evidence": [
+        "test:internal/codingagent/assistant_message_upstream_test.go#TestAssistantMessageUpstream",
+        "test:internal/codingagent/interactive_mode_status_upstream_test.go#TestInteractiveManagedToolStatusContiguousGroupUpstream",
+        "test:internal/codingagent/interactive_mode_status_upstream_test.go#TestInteractiveStatusCoalescingUpstream"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#AssistantMessageComponent::construct:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:1b47f84a96c0135de4f0b3e8b1d16deae923dabd90528ef2fbcfde961bf1a044"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:1b47f84a96c0135de4f0b3e8b1d16deae923dabd90528ef2fbcfde961bf1a044",
+      "rationale": "Derived by the interface gap detector: AssistantMessageComponent::construct:0 is Go tui/assistant_message_block.go#NewAssistantMessageComponent (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "tui/assistant_message_block.go#NewAssistantMessageComponent"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:tui/assistant_message_block.go#NewAssistantMessageComponent"
+      ],
+      "evidence": [
+        "test:internal/codingagent/mermaid_fallback_upstream_test.go#TestMermaidFallbackAssistantBlockMatchesDisabledTransform",
+        "test:internal/codingagent/mermaid_fallback_upstream_test.go#TestMermaidPartialWarningRemainsDisplayOnly",
+        "test:tui/assistant_message_label_oracle_test.go#TestAssistantMessageHiddenThinkingLabelMatchesPi"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#AssistantMessageComponent::property:addChild",
@@ -133671,8 +133846,8 @@
       ],
       "evidence": [
         "test:tui/assistant_message_render_oracle_test.go#TestAssistantMessageComponentRenderMatchesPi",
-        "test:tui/assistant_message_block_allocs_norace_test.go#TestAssistantMessageDeltaAllocationCeiling",
-        "test:tui/assistant_message_update_content_test.go#TestAssistantMessageConstructorMarkdownTransformers"
+        "test:internal/codingagent/markdown_message_meta_test.go#TestMarkdownTransformContextCarriesPersistedEntryIdentity",
+        "test:tui/assistant_message_block_allocs_norace_test.go#TestAssistantMessageDeltaAllocationCeiling"
       ]
     },
     {
@@ -133693,8 +133868,8 @@
       ],
       "evidence": [
         "test:tui/assistant_message_render_oracle_test.go#TestAssistantMessageComponentRenderMatchesPi",
-        "test:tui/assistant_message_block_allocs_norace_test.go#TestAssistantMessageDeltaAllocationCeiling",
-        "test:tui/assistant_message_update_content_test.go#TestAssistantMessageConstructorMarkdownTransformers"
+        "test:internal/codingagent/markdown_message_meta_test.go#TestMarkdownTransformContextCarriesPersistedEntryIdentity",
+        "test:tui/assistant_message_block_allocs_norace_test.go#TestAssistantMessageDeltaAllocationCeiling"
       ]
     },
     {
@@ -166907,7 +167082,7 @@
       "evidence": [
         "test:tui/auth_url_copy_upstream_test.go#TestAuthURLCopyLoginDialogCopiesTheAuthURLInsteadOfTypingIntoTheCodeInput",
         "test:tui/login_dialog_oauth_prompt_upstream_test.go#TestLoginDialogPreservesAuthInstructionsWithPromptUpstream",
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginClearsBothActionTypesWhenShowingDetails"
       ]
     },
     {
@@ -166929,7 +167104,7 @@
       "evidence": [
         "test:tui/auth_url_copy_upstream_test.go#TestAuthURLCopyLoginDialogCopiesTheAuthURLInsteadOfTypingIntoTheCodeInput",
         "test:tui/login_dialog_oauth_prompt_upstream_test.go#TestLoginDialogPreservesAuthInstructionsWithPromptUpstream",
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginClearsBothActionTypesWhenShowingDetails"
       ]
     },
     {
@@ -166950,8 +167125,8 @@
       ],
       "evidence": [
         "test:tui/login_dialog_oauth_prompt_upstream_test.go#TestLoginDialogPreservesSetupDetailsUpstream",
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo",
-        "test:tui/login_dialog_proof_test.go#TestLoginDialogCopyKeyCopiesTheShownAuthURLOnly"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginClearsBothActionTypesWhenShowingDetails",
+        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo"
       ]
     },
     {
@@ -166972,8 +167147,8 @@
       ],
       "evidence": [
         "test:tui/login_dialog_oauth_prompt_upstream_test.go#TestLoginDialogPreservesSetupDetailsUpstream",
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo",
-        "test:tui/login_dialog_proof_test.go#TestLoginDialogCopyKeyCopiesTheShownAuthURLOnly"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginClearsBothActionTypesWhenShowingDetails",
+        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo"
       ]
     },
     {
@@ -166994,8 +167169,8 @@
       ],
       "evidence": [
         "test:tui/auth_url_copy_upstream_test.go#TestAuthURLCopyLoginDialogIgnoresTheCopyKeyWithoutAnAuthURL",
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo",
-        "test:tui/login_dialog_proof_test.go#TestLoginDialogCopyKeyCopiesTheShownAuthURLOnly"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginCancelsWithoutOpeningABrowserOrChangingTheClipboard",
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginClearsBothActionTypesWhenShowingDetails"
       ]
     },
     {
@@ -167016,8 +167191,8 @@
       ],
       "evidence": [
         "test:tui/auth_url_copy_upstream_test.go#TestAuthURLCopyLoginDialogIgnoresTheCopyKeyWithoutAnAuthURL",
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentShowsAuthDeviceCodeDetailsAndInfo",
-        "test:tui/login_dialog_proof_test.go#TestLoginDialogCopyKeyCopiesTheShownAuthURLOnly"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginCancelsWithoutOpeningABrowserOrChangingTheClipboard",
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginClearsBothActionTypesWhenShowingDetails"
       ]
     },
     {
@@ -167217,9 +167392,9 @@
         "call:tui/login_dialog.go#LoginDialogComponent.ShowWaiting"
       ],
       "evidence": [
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentPromptFlow",
-        "test:tui/login_dialog_proof_test.go#TestLoginDialogRedactsEverySubmittedSecretLongestFirstAndClosesTheAnswer",
-        "test:tui/login_dialog_test.go#TestLoginDialog_ShowDeviceCode"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginKeepsManualLoginAvailableWhenBrowserAndClipboardAccessFail",
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginOpensTheVerificationPageAndCopiesTheCodeOnceAfterConfirmation",
+        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentPromptFlow"
       ]
     },
     {
@@ -167239,9 +167414,9 @@
         "call:tui/login_dialog.go#LoginDialogComponent.ShowWaiting"
       ],
       "evidence": [
-        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentPromptFlow",
-        "test:tui/login_dialog_proof_test.go#TestLoginDialogRedactsEverySubmittedSecretLongestFirstAndClosesTheAnswer",
-        "test:tui/login_dialog_test.go#TestLoginDialog_ShowDeviceCode"
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginKeepsManualLoginAvailableWhenBrowserAndClipboardAccessFail",
+        "test:tui/login_dialog_device_code_test.go#TestDeviceCodeLoginOpensTheVerificationPageAndCopiesTheCodeOnceAfterConfirmation",
+        "test:tui/login_dialog_gaps_test.go#TestLoginDialogComponentPromptFlow"
       ]
     },
     {
@@ -167780,8 +167955,25 @@
     },
     {
       "id": "pkg:coding-agent/.#MarkdownTransformContext",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:1c89b246aa0bd827f45534a98aedf356cf6d553b6e1ff4bdfab87b402cc15b58"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:1c89b246aa0bd827f45534a98aedf356cf6d553b6e1ff4bdfab87b402cc15b58",
+      "rationale": "Derived by the interface gap detector: MarkdownTransformContext is Go coding/extension/renderer.go#MarkdownTransformContext (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "coding/extension/renderer.go#MarkdownTransformContext"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/host/subprocess/markdown_transform_proxy.go#markdownTransformProxy.transform"
+      ],
+      "evidence": [
+        "test:coding/extension/host/inproc/upstream_markdown_collection_test.go#TestRunnerMarkdownTransformerCollectionOrder",
+        "test:coding/extension/host/subprocess/upstream_runner_markdown_test.go#TestUpstreamRunnerMarkdownSourceFactories",
+        "test:internal/codingagent/assistant_message_upstream_test.go#TestAssistantMessageUpstream"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#MarkdownTransformContext::property:availableWidth",
@@ -167829,8 +168021,24 @@
     },
     {
       "id": "pkg:coding-agent/.#MarkdownTransformContext::property:messageId",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f4e1b40afa6a116624d6d0903d699011cd324f9e818526e6c0ae03916cccb9d6"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:f4e1b40afa6a116624d6d0903d699011cd324f9e818526e6c0ae03916cccb9d6",
+      "rationale": "Derived by the interface gap detector: MarkdownTransformContext::property:messageId is Go coding/extension/markdowntransform/markdowntransform.go#MarkdownTransformContext.MessageID (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "coding/extension/markdowntransform/markdowntransform.go#MarkdownTransformContext.MessageID"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/markdowntransform/markdowntransform.go#CreateMarkdownTransform"
+      ],
+      "evidence": [
+        "test:tui/user_message_upstream_test.go#TestUpstreamUserMessagePersistedEntryIdentity",
+        "test:internal/codingagent/markdown_message_meta_test.go#TestMarkdownTransformContextCarriesPersistedEntryIdentity"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#MarkdownTransformContext::property:messageType",
@@ -167856,8 +168064,24 @@
     },
     {
       "id": "pkg:coding-agent/.#MarkdownTransformContext::property:timestamp",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:1ed0c936ae3c7c88c1725fa4aacd8d3229b0d79fa302ce9d0c007f557fa826b1"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:1ed0c936ae3c7c88c1725fa4aacd8d3229b0d79fa302ce9d0c007f557fa826b1",
+      "rationale": "Derived by the interface gap detector: MarkdownTransformContext::property:timestamp is Go coding/extension/markdowntransform/markdowntransform.go#MarkdownTransformContext.Timestamp (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "coding/extension/markdowntransform/markdowntransform.go#MarkdownTransformContext.Timestamp"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:coding/extension/markdowntransform/markdowntransform.go#CreateMarkdownTransform"
+      ],
+      "evidence": [
+        "test:tui/user_message_upstream_test.go#TestUpstreamUserMessagePersistedEntryIdentity",
+        "test:internal/codingagent/markdown_message_meta_test.go#TestMarkdownTransformContextCarriesPersistedEntryIdentity"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#MarkdownTransformer",
@@ -203811,13 +204035,47 @@
     },
     {
       "id": "pkg:coding-agent/.#UserMessageComponent",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:148cfdfa7576b1ce7e11ab2190498e7a24c36c022267a256057bfb968add8926"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:148cfdfa7576b1ce7e11ab2190498e7a24c36c022267a256057bfb968add8926",
+      "rationale": "Derived by the interface gap detector: UserMessageComponent is Go tui/user_message_block.go#UserMessageComponent (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "tui/user_message_block.go#UserMessageComponent"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:tui/assistant_message_block.go#AssistantMessageComponent.Render"
+      ],
+      "evidence": [
+        "test:internal/codingagent/assistant_message_upstream_test.go#TestAssistantMessageUpstream",
+        "test:internal/codingagent/interactive_mode_status_upstream_test.go#TestInteractiveManagedToolStatusContiguousGroupUpstream",
+        "test:internal/codingagent/interactive_mode_status_upstream_test.go#TestInteractiveStatusCoalescingUpstream"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#UserMessageComponent::construct:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:cc61b74ea40a2404ba360954c6b12f6c79d5b9efbee6e7f9104dd42dc4605227"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:cc61b74ea40a2404ba360954c6b12f6c79d5b9efbee6e7f9104dd42dc4605227",
+      "rationale": "Derived by the interface gap detector: UserMessageComponent::construct:0 is Go tui/user_message_block.go#NewUserMessageComponent (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "tui/user_message_block.go#NewUserMessageComponent"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:tui/user_message_block.go#NewUserMessageComponent"
+      ],
+      "evidence": [
+        "test:internal/codingagent/assistant_message_upstream_test.go#TestAssistantMessageUpstream",
+        "test:internal/codingagent/user_message_upstream_test.go#TestUpstreamUserMessageTransformerContext",
+        "test:tui/user_message_render_oracle_test.go#TestUserMessageComponentRenderMatchesPi"
+      ]
     },
     {
       "id": "pkg:coding-agent/.#UserMessageComponent::property:addChild",
@@ -262194,8 +262452,8 @@
       ],
       "evidence": [
         "test:tui/fuzzy_oracle_test.go#TestFuzzyMatchesPiOnSeededProbes",
-        "test:tui/fuzzy_upstream_test.go#TestUpstreamFuzzyMatch",
-        "test:tui/autocomplete_test.go#TestFuzzyMatch_OrderedSubsequence"
+        "test:tui/fuzzy_upstream_test.go#TestUpstreamFuzzyContiguousAlignment",
+        "test:tui/fuzzy_upstream_test.go#TestUpstreamFuzzyMatch"
       ]
     },
     {
@@ -262259,8 +262517,8 @@
       ],
       "evidence": [
         "test:tui/fuzzy_oracle_test.go#TestFuzzyMatchesPiOnSeededProbes",
-        "test:tui/fuzzy_upstream_test.go#TestUpstreamFuzzyMatch",
-        "test:tui/fuzzy_test.go#TestFuzzyMatchScore_EmptyAndTooLong"
+        "test:tui/fuzzy_upstream_test.go#TestUpstreamFuzzyContiguousAlignment",
+        "test:tui/fuzzy_upstream_test.go#TestUpstreamFuzzyMatch"
       ]
     },
     {
