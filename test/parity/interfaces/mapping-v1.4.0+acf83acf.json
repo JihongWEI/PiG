@@ -101675,8 +101675,8 @@
       ],
       "evidence": [
         "test:chord/host/schema_pi_oracle_test.go#TestAssertValidMatchesPi",
-        "test:chord/host/schema_pi_oracle_test.go#TestCanonicalIdentityAndNormalizeMatchPi",
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
+        "test:chord/host/schema_pi_oracle_test.go#TestAssertValidOverADecodedDescriptionKeepsTheDeclaredOrderLikePi",
+        "test:chord/host/schema_pi_oracle_test.go#TestCanonicalIdentityAndNormalizeMatchPi"
       ]
     },
     {
@@ -102441,7 +102441,7 @@
       "evidence": [
         "test:chord/host/variants_upstream_test.go#TestVariantsANewVariantsMembersArriveWithItsShapeAMemberOutsideTheVariantThrowsNotInVariant",
         "test:chord/host/contract_upstream_test.go#TestContractsMethodsWithoutArgumentsOrResultAreDescribedWithoutThemTheirPresenceMustMatchAVoidConsumerAcceptsAResult",
-        "test:chord/host/contract_fields_test.go#TestContractTokensCarryPiFields"
+        "test:chord/host/schema_pi_oracle_test.go#TestAssertValidOverADecodedDescriptionKeepsTheDeclaredOrderLikePi"
       ]
     },
     {
