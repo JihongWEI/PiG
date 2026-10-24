@@ -100807,9 +100807,9 @@
         "public-api:chord/host/websocket.go#AcceptWebSockets"
       ],
       "evidence": [
+        "test:chord/host/websocket_pi_oracle_test.go#TestAcceptWebSocketsMatchesPiOnEveryAuthenticatorOutcome",
         "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksAHoldTakenAfterTheServerRefusedTheSocketHasNoRoute",
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem",
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksServesABrowserStyleClientOverARealSocketStampedByTheAuthenticator"
+        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem"
       ]
     },
     {
@@ -100829,9 +100829,9 @@
         "public-api:chord/host/websocket.go#AcceptWebSockets"
       ],
       "evidence": [
+        "test:chord/host/websocket_pi_oracle_test.go#TestAcceptWebSocketsMatchesPiOnEveryAuthenticatorOutcome",
         "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksAHoldTakenAfterTheServerRefusedTheSocketHasNoRoute",
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem",
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksServesABrowserStyleClientOverARealSocketStampedByTheAuthenticator"
+        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem"
       ]
     },
     {
@@ -101586,9 +101586,9 @@
         "call:chord/host/cell.go#NotReady"
       ],
       "evidence": [
-        "test:chord/host/manager_upstream_test.go#TestChildControlOverNodeChannel",
-        "test:chord/host/awaiting_upstream_test.go#TestAwaitingAGetTimesOutAfterReadyTimeoutWithReadyTimeoutAndReleasesItsHold",
-        "test:chord/host/bindings_upstream_test.go#TestHydrationOverALinkNullEmptyAndUndefinedValuesHydrateAStateFreeVariantIsReadyAFailedSnapshotRejects"
+        "test:chord/host/errors_pi_oracle_test.go#TestAsChordErrorMatchesPi",
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
+        "test:chord/host/errors_pi_oracle_test.go#TestIsChordErrorMatchesPi"
       ]
     },
     {
@@ -101608,9 +101608,9 @@
         "call:chord/host/errors.go#NewChordError"
       ],
       "evidence": [
-        "test:chord/host/manager_upstream_test.go#TestChildControlOverNodeChannel",
-        "test:chord/host/errors_test.go#TestAsChordErrorKeepsChordErrorsAndWrapsOthers",
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
+        "test:chord/host/errors_pi_oracle_test.go#TestAsChordErrorMatchesPi",
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
+        "test:chord/host/errors_pi_oracle_test.go#TestIsChordErrorMatchesPi"
       ]
     },
     {
@@ -101630,9 +101630,9 @@
         "call:chord/host/errors.go#ChordError.Unwrap"
       ],
       "evidence": [
+        "test:chord/host/errors_pi_oracle_test.go#TestAsChordErrorMatchesPi",
         "test:chord/host/errors_test.go#TestAsChordErrorKeepsChordErrorsAndWrapsOthers",
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields",
-        "test:chord/host/reload_error_test.go#TestReloadErrorKeepsTheCauseCodeAndSaysTheReloadAborted"
+        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
       ]
     },
     {
@@ -101674,8 +101674,9 @@
         "call:chord/host/errors.go#NewChordError"
       ],
       "evidence": [
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields",
-        "test:chord/host/reload_error_test.go#TestReloadErrorKeepsTheCauseCodeAndSaysTheReloadAborted"
+        "test:chord/host/schema_pi_oracle_test.go#TestAssertValidMatchesPi",
+        "test:chord/host/schema_pi_oracle_test.go#TestCanonicalIdentityAndNormalizeMatchPi",
+        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
       ]
     },
     {
@@ -101717,7 +101718,9 @@
         "call:chord/host/errors.go#NewChordError"
       ],
       "evidence": [
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
+        "test:chord/host/wire_pi_oracle_test.go#TestWireErrorsMatchPi",
+        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields",
+        "test:chord/host/errors_pi_oracle_test.go#TestAsChordErrorMatchesPi"
       ]
     },
     {
@@ -101761,7 +101764,7 @@
       "evidence": [
         "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields",
         "test:chord/host/errors_test.go#TestForbiddenDefaultsOnlyAnOmittedMessage",
-        "test:chord/host/reload_upstream_test.go#TestReloadStateBumpGateMigrateOldFromVersionIntoTheNewSchemaResetToWatchersOldRootsUpgradeConflict"
+        "test:chord/host/errors_pi_oracle_test.go#TestAsChordErrorMatchesPi"
       ]
     },
     {
@@ -101790,9 +101793,9 @@
         "call:chord/host/cell.go#NotReady"
       ],
       "evidence": [
-        "test:chord/host/awaiting_upstream_test.go#TestAwaitingACtxGetStillWaitingWhenItsCallSettlesRejectsAbortedAndReleasesItsReference",
-        "test:chord/host/awaiting_upstream_test.go#TestAwaitingAGetTimesOutAfterReadyTimeoutWithReadyTimeoutAndReleasesItsHold",
-        "test:chord/host/awaiting_upstream_test.go#TestAwaitingAnAbortedGetRejectsAndReleasesOnlyItsReferenceTheBindingStaysForTheOthers"
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
+        "test:chord/host/errors_pi_oracle_test.go#TestIsChordErrorMatchesPi",
+        "test:chord/host/wire_pi_oracle_test.go#TestWireErrorsMatchPi"
       ]
     },
     {
@@ -102981,9 +102984,9 @@
         "call:chord/host/errors.go#Forbidden"
       ],
       "evidence": [
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
         "test:chord/host/host_upstream_test.go#TestHostAChordErrorFromAFactoryKeepsItsCodeThroughDependents",
-        "test:chord/host/readiness_upstream_test.go#TestReadinessReadyIncludesDirectHostServesButNotLaterServes",
-        "test:chord/host/readiness_upstream_test.go#TestReadinessRejectsEagerFailureWithTheActivationError"
+        "test:chord/host/readiness_upstream_test.go#TestReadinessReadyIncludesDirectHostServesButNotLaterServes"
       ]
     },
     {
@@ -103003,9 +103006,9 @@
         "call:chord/host/errors.go#Forbidden"
       ],
       "evidence": [
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
         "test:chord/host/host_upstream_test.go#TestHostAChordErrorFromAFactoryKeepsItsCodeThroughDependents",
-        "test:chord/host/readiness_upstream_test.go#TestReadinessReadyIncludesDirectHostServesButNotLaterServes",
-        "test:chord/host/readiness_upstream_test.go#TestReadinessRejectsEagerFailureWithTheActivationError"
+        "test:chord/host/readiness_upstream_test.go#TestReadinessReadyIncludesDirectHostServesButNotLaterServes"
       ]
     },
     {
@@ -104457,8 +104460,8 @@
       ],
       "evidence": [
         "test:chord/host/cell_upstream_test.go#TestCellWriteGuardRefusesWrites",
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields",
-        "test:chord/host/wire_test.go#TestWireErrorsKeepCodeReasonAndMessage"
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
+        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
       ]
     },
     {
@@ -104479,8 +104482,8 @@
       ],
       "evidence": [
         "test:chord/host/cell_upstream_test.go#TestCellWriteGuardRefusesWrites",
-        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields",
-        "test:chord/host/wire_test.go#TestWireErrorsKeepCodeReasonAndMessage"
+        "test:chord/host/errors_pi_oracle_test.go#TestChordErrorMatchesPi",
+        "test:chord/host/errors_test.go#TestChordErrorCarriesPiFields"
       ]
     },
     {
@@ -110006,9 +110009,9 @@
         "public-api:chord/host/websocket.go#WebSocketAcceptOptions"
       ],
       "evidence": [
+        "test:chord/host/websocket_pi_oracle_test.go#TestAcceptWebSocketsMatchesPiOnEveryAuthenticatorOutcome",
         "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksAHoldTakenAfterTheServerRefusedTheSocketHasNoRoute",
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem",
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksServesABrowserStyleClientOverARealSocketStampedByTheAuthenticator"
+        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -110133,7 +110136,7 @@
         "public-api:chord/host/websocket.go#WebSocketAcceptOptions.Principal"
       ],
       "evidence": [
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem"
+        "test:chord/host/websocket_pi_oracle_test.go#TestAcceptWebSocketsMatchesPiOnEveryAuthenticatorOutcome"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -110154,7 +110157,7 @@
         "public-api:chord/host/websocket.go#WebSocketAcceptOptions.Principal"
       ],
       "evidence": [
-        "test:chord/host/websocket_upstream_test.go#TestWebSocketLinksPackedPayloadsLargeSnapshotsAndResultsReachTheClientAsBinaryMessagesClientsMayNotSendThem"
+        "test:chord/host/websocket_pi_oracle_test.go#TestAcceptWebSocketsMatchesPiOnEveryAuthenticatorOutcome"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
