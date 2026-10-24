@@ -102441,7 +102441,7 @@
       "evidence": [
         "test:chord/host/variants_upstream_test.go#TestVariantsANewVariantsMembersArriveWithItsShapeAMemberOutsideTheVariantThrowsNotInVariant",
         "test:chord/host/contract_upstream_test.go#TestContractsMethodsWithoutArgumentsOrResultAreDescribedWithoutThemTheirPresenceMustMatchAVoidConsumerAcceptsAResult",
-        "test:chord/host/schema_pi_oracle_test.go#TestAssertValidOverADecodedDescriptionKeepsTheDeclaredOrderLikePi"
+        "test:chord/host/schema_pi_oracle_test.go#TestADecodedDescriptionIsWrittenBackInDeclaredOrderLikePi"
       ]
     },
     {
