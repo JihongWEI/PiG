@@ -7413,8 +7413,8 @@
       ],
       "evidence": [
         "test:agent/proxy_partial_arguments_upstream_test.go#TestStreamProxyShowsGrowingPartialArgumentsWithoutKeepingTheRawTextOnTheBlockInLinearTime",
-        "test:ai/faux_provider_upstream_test.go#TestFauxProviderUpstream",
-        "test:ai/openai_responses_partial_json_cleanup_upstream_test.go#TestOpenAIResponsesRemovesPartialJSONFromPersistedToolCallBlocksAtOutputItemDone"
+        "test:ai/bedrock_stream_state_upstream_test.go#TestBedrockStreamStateStaysOffPartialBlocksAndTheToolCallFinishesWithItsExactArguments",
+        "test:ai/faux_provider_upstream_test.go#TestFauxProviderUpstream"
       ]
     },
     {
@@ -18995,8 +18995,9 @@
     },
     {
       "id": "pkg:ai/.#JsonChange",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f2c3b53af588a804db635733acf0d7e8b9ebee3787cc410f475729bafc996167"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:f2c3b53af588a804db635733acf0d7e8b9ebee3787cc410f475729bafc996167",
+      "rationale": "utils/streaming-json.ts JsonChange = {kind: 'set', path, value} | {kind: 'append', path, text} is a union alias of two object types discriminated by kind. Go has no unions: ai.JSONChange (ai/streaming_json_parser.go) is the one struct of the discriminant and both variants' members (Kind \"set\" or \"append\", Path, Value for a set, Text for an append), returned by StreamingJSONParser.Append and read by durable.PartialChanges, so the alias has no separate Go declaration. Designed out as a TypeScript union alias, as chord/delta#PathRef is; TestStreamingJSONParserMatchesPi compares every change with Pi's."
     },
     {
       "id": "pkg:ai/.#JsonObject",
@@ -32369,13 +32370,47 @@
     },
     {
       "id": "pkg:ai/.#StreamingJsonParser",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:387a8c81f8e160d185b671110ecd10e9116c8f733dacc275634247c00f91c5b6"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:387a8c81f8e160d185b671110ecd10e9116c8f733dacc275634247c00f91c5b6",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser is Go ai/streaming_json_parser.go#StreamingJSONParser (name rule N2), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/.#StreamingJsonParser::construct:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:fb04f0710dd207db5f88c550ec39dc3596074df26116e642c12dda2601942c91"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:fb04f0710dd207db5f88c550ec39dc3596074df26116e642c12dda2601942c91",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::construct:0 is Go ai/streaming_json_parser.go#StreamingJSONParser (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/.#StreamingJsonParser::property:append",
@@ -32394,7 +32429,9 @@
         "call:ai/streaming_json_parser.go#StreamingJSONParser.Append"
       ],
       "evidence": [
-        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi"
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
       ]
     },
     {
@@ -32414,18 +32451,54 @@
         "call:ai/streaming_json_parser.go#StreamingJSONParser.Append"
       ],
       "evidence": [
-        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi"
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
       ]
     },
     {
       "id": "pkg:ai/.#StreamingJsonParser::property:snapshot",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a7b9a0170046f980d39ec752bc64d7dcc52c50e3cb4f9b7e486905bf767c2837"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a7b9a0170046f980d39ec752bc64d7dcc52c50e3cb4f9b7e486905bf767c2837",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::property:snapshot is Go ai/streaming_json_parser.go#StreamingJSONParser.Snapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/.#StreamingJsonParser::property:snapshot::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:87c95dc7fbd68ed8a2888df5b831546bc01bc50d1a0d0b67a3c7435b7b8bb411"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:87c95dc7fbd68ed8a2888df5b831546bc01bc50d1a0d0b67a3c7435b7b8bb411",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::property:snapshot::call:0 is Go ai/streaming_json_parser.go#StreamingJSONParser.Snapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/.#StreamOptions",
@@ -33501,7 +33574,7 @@
       "evidence": [
         "test:agent/transform_thinking_oracle_test.go#TestNormalizeAssistantReplayThinkingTrimMatchesPi",
         "test:ai/bedrock_reasoning_upstream_test.go#TestBedrockUpstreamRedactedReasoning",
-        "test:ai/faux_helpers_upstream_test.go#TestFauxAssistantMessageIsAnAssistantMessageThatStreamsBackUnchanged"
+        "test:ai/bedrock_stream_state_upstream_test.go#TestBedrockStreamStateStaysOffPartialBlocksAndTheToolCallFinishesWithItsExactArguments"
       ]
     },
     {
@@ -33924,8 +33997,25 @@
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f100df9328cb4c55ffaf6260aee479bcb432da9507ebaf8ec7dfa2802f93ffe3"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:f100df9328cb4c55ffaf6260aee479bcb432da9507ebaf8ec7dfa2802f93ffe3",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream is Go ai/streaming_json_parser.go#ToolCallArgumentsStream (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/anthropic.go#anthropicProvider.parseAnthropicSSE"
+      ],
+      "evidence": [
+        "test:agent/proxy_stream_cost_test.go#TestProxyEventConverterToolArgumentsEqualTheWholeTextParseAfterEveryDelta",
+        "test:agent/proxy_streamed_blocks_test.go#TestStreamProxyDeltasEqualConcatenationAndWholeTextParse",
+        "test:agent/proxy_non_object_arguments_test.go#TestProxyNonObjectToolArgumentsFollowPi"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::construct:0",
@@ -33951,33 +34041,123 @@
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:append",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:5b7e9207b08156e5809a23bd0741fa0ec0a040902a31de5198336a64935e145a"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:5b7e9207b08156e5809a23bd0741fa0ec0a040902a31de5198336a64935e145a",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:append is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Append (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:append::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:af5792021bd626b4e65f3778222e802b7f687b5831cddea9e5ed6bfbec55da16"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:af5792021bd626b4e65f3778222e802b7f687b5831cddea9e5ed6bfbec55da16",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:append::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Append (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:finish",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:e0474332f3d836d10bacaf8fd26d598d6e61d1995f1728e05c97850fa57ca050"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:e0474332f3d836d10bacaf8fd26d598d6e61d1995f1728e05c97850fa57ca050",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:finish is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:finish::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:3fc6833bd40efb792cf24d7bacb5e571605dd8e673d6c7d41ad0856f5a5aba75"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:3fc6833bd40efb792cf24d7bacb5e571605dd8e673d6c7d41ad0856f5a5aba75",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:finish::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:replace",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a6cc9f86ffe37c1a9c59bc870286c095c9f1f6626b25d6797986dfb23a079c78"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a6cc9f86ffe37c1a9c59bc870286c095c9f1f6626b25d6797986dfb23a079c78",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:replace is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:replace::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:1bb51c66a2ae6cbcd7e17a37ef7b1d971dd90710098ace095d2a5cffa1fc5538"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:1bb51c66a2ae6cbcd7e17a37ef7b1d971dd90710098ace095d2a5cffa1fc5538",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:replace::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ]
     },
     {
       "id": "pkg:ai/.#ToolCallArgumentsStream::property:text",
@@ -50508,8 +50688,8 @@
       ],
       "evidence": [
         "test:agent/proxy_partial_arguments_upstream_test.go#TestStreamProxyShowsGrowingPartialArgumentsWithoutKeepingTheRawTextOnTheBlockInLinearTime",
-        "test:ai/faux_provider_upstream_test.go#TestFauxProviderUpstream",
-        "test:ai/openai_responses_partial_json_cleanup_upstream_test.go#TestOpenAIResponsesRemovesPartialJSONFromPersistedToolCallBlocksAtOutputItemDone"
+        "test:ai/bedrock_stream_state_upstream_test.go#TestBedrockStreamStateStaysOffPartialBlocksAndTheToolCallFinishesWithItsExactArguments",
+        "test:ai/faux_provider_upstream_test.go#TestFauxProviderUpstream"
       ]
     },
     {
@@ -63106,8 +63286,9 @@
     },
     {
       "id": "pkg:ai/compat#JsonChange",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f2c3b53af588a804db635733acf0d7e8b9ebee3787cc410f475729bafc996167"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:f2c3b53af588a804db635733acf0d7e8b9ebee3787cc410f475729bafc996167",
+      "rationale": "utils/streaming-json.ts JsonChange = {kind: 'set', path, value} | {kind: 'append', path, text} is a union alias of two object types discriminated by kind. Go has no unions: ai.JSONChange (ai/streaming_json_parser.go) is the one struct of the discriminant and both variants' members (Kind \"set\" or \"append\", Path, Value for a set, Text for an append), returned by StreamingJSONParser.Append and read by durable.PartialChanges, so the alias has no separate Go declaration. Designed out as a TypeScript union alias, as chord/delta#PathRef is; TestStreamingJSONParserMatchesPi compares every change with Pi's."
     },
     {
       "id": "pkg:ai/compat#JsonObject",
@@ -77228,13 +77409,47 @@
     },
     {
       "id": "pkg:ai/compat#StreamingJsonParser",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:387a8c81f8e160d185b671110ecd10e9116c8f733dacc275634247c00f91c5b6"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:387a8c81f8e160d185b671110ecd10e9116c8f733dacc275634247c00f91c5b6",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser is Go ai/streaming_json_parser.go#StreamingJSONParser (name rule N2), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/compat#StreamingJsonParser::construct:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:fb04f0710dd207db5f88c550ec39dc3596074df26116e642c12dda2601942c91"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:fb04f0710dd207db5f88c550ec39dc3596074df26116e642c12dda2601942c91",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::construct:0 is Go ai/streaming_json_parser.go#StreamingJSONParser (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/compat#StreamingJsonParser::property:append",
@@ -77253,7 +77468,9 @@
         "call:ai/streaming_json_parser.go#StreamingJSONParser.Append"
       ],
       "evidence": [
-        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi"
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
       ]
     },
     {
@@ -77273,18 +77490,54 @@
         "call:ai/streaming_json_parser.go#StreamingJSONParser.Append"
       ],
       "evidence": [
-        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi"
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
       ]
     },
     {
       "id": "pkg:ai/compat#StreamingJsonParser::property:snapshot",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a7b9a0170046f980d39ec752bc64d7dcc52c50e3cb4f9b7e486905bf767c2837"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a7b9a0170046f980d39ec752bc64d7dcc52c50e3cb4f9b7e486905bf767c2837",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::property:snapshot is Go ai/streaming_json_parser.go#StreamingJSONParser.Snapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/compat#StreamingJsonParser::property:snapshot::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:87c95dc7fbd68ed8a2888df5b831546bc01bc50d1a0d0b67a3c7435b7b8bb411"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:87c95dc7fbd68ed8a2888df5b831546bc01bc50d1a0d0b67a3c7435b7b8bb411",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::property:snapshot::call:0 is Go ai/streaming_json_parser.go#StreamingJSONParser.Snapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/compat#streamMistral",
@@ -78930,7 +79183,7 @@
       "evidence": [
         "test:agent/transform_thinking_oracle_test.go#TestNormalizeAssistantReplayThinkingTrimMatchesPi",
         "test:ai/bedrock_reasoning_upstream_test.go#TestBedrockUpstreamRedactedReasoning",
-        "test:ai/faux_helpers_upstream_test.go#TestFauxAssistantMessageIsAnAssistantMessageThatStreamsBackUnchanged"
+        "test:ai/bedrock_stream_state_upstream_test.go#TestBedrockStreamStateStaysOffPartialBlocksAndTheToolCallFinishesWithItsExactArguments"
       ]
     },
     {
@@ -79353,8 +79606,25 @@
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f100df9328cb4c55ffaf6260aee479bcb432da9507ebaf8ec7dfa2802f93ffe3"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:f100df9328cb4c55ffaf6260aee479bcb432da9507ebaf8ec7dfa2802f93ffe3",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream is Go ai/streaming_json_parser.go#ToolCallArgumentsStream (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/anthropic.go#anthropicProvider.parseAnthropicSSE"
+      ],
+      "evidence": [
+        "test:agent/proxy_stream_cost_test.go#TestProxyEventConverterToolArgumentsEqualTheWholeTextParseAfterEveryDelta",
+        "test:agent/proxy_streamed_blocks_test.go#TestStreamProxyDeltasEqualConcatenationAndWholeTextParse",
+        "test:agent/proxy_non_object_arguments_test.go#TestProxyNonObjectToolArgumentsFollowPi"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::construct:0",
@@ -79380,33 +79650,123 @@
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:append",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:5b7e9207b08156e5809a23bd0741fa0ec0a040902a31de5198336a64935e145a"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:5b7e9207b08156e5809a23bd0741fa0ec0a040902a31de5198336a64935e145a",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:append is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Append (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:append::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:af5792021bd626b4e65f3778222e802b7f687b5831cddea9e5ed6bfbec55da16"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:af5792021bd626b4e65f3778222e802b7f687b5831cddea9e5ed6bfbec55da16",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:append::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Append (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:finish",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:e0474332f3d836d10bacaf8fd26d598d6e61d1995f1728e05c97850fa57ca050"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:e0474332f3d836d10bacaf8fd26d598d6e61d1995f1728e05c97850fa57ca050",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:finish is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:finish::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:3fc6833bd40efb792cf24d7bacb5e571605dd8e673d6c7d41ad0856f5a5aba75"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:3fc6833bd40efb792cf24d7bacb5e571605dd8e673d6c7d41ad0856f5a5aba75",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:finish::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:replace",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a6cc9f86ffe37c1a9c59bc870286c095c9f1f6626b25d6797986dfb23a079c78"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a6cc9f86ffe37c1a9c59bc870286c095c9f1f6626b25d6797986dfb23a079c78",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:replace is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:replace::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:1bb51c66a2ae6cbcd7e17a37ef7b1d971dd90710098ace095d2a5cffa1fc5538"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:1bb51c66a2ae6cbcd7e17a37ef7b1d971dd90710098ace095d2a5cffa1fc5538",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:replace::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ]
     },
     {
       "id": "pkg:ai/compat#ToolCallArgumentsStream::property:text",
@@ -99700,8 +100060,9 @@
     },
     {
       "id": "pkg:ai/utils/streaming-json#JsonChange",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f2c3b53af588a804db635733acf0d7e8b9ebee3787cc410f475729bafc996167"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:f2c3b53af588a804db635733acf0d7e8b9ebee3787cc410f475729bafc996167",
+      "rationale": "utils/streaming-json.ts JsonChange = {kind: 'set', path, value} | {kind: 'append', path, text} is a union alias of two object types discriminated by kind. Go has no unions: ai.JSONChange (ai/streaming_json_parser.go) is the one struct of the discriminant and both variants' members (Kind \"set\" or \"append\", Path, Value for a set, Text for an append), returned by StreamingJSONParser.Append and read by durable.PartialChanges, so the alias has no separate Go declaration. Designed out as a TypeScript union alias, as chord/delta#PathRef is; TestStreamingJSONParserMatchesPi compares every change with Pi's."
     },
     {
       "id": "pkg:ai/utils/streaming-json#JsonPath",
@@ -99725,13 +100086,47 @@
     },
     {
       "id": "pkg:ai/utils/streaming-json#StreamingJsonParser",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:387a8c81f8e160d185b671110ecd10e9116c8f733dacc275634247c00f91c5b6"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:387a8c81f8e160d185b671110ecd10e9116c8f733dacc275634247c00f91c5b6",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser is Go ai/streaming_json_parser.go#StreamingJSONParser (name rule N2), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#StreamingJsonParser::construct:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:fb04f0710dd207db5f88c550ec39dc3596074df26116e642c12dda2601942c91"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:fb04f0710dd207db5f88c550ec39dc3596074df26116e642c12dda2601942c91",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::construct:0 is Go ai/streaming_json_parser.go#StreamingJSONParser (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#StreamingJsonParser::property:append",
@@ -99750,7 +100145,9 @@
         "call:ai/streaming_json_parser.go#StreamingJSONParser.Append"
       ],
       "evidence": [
-        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi"
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
       ]
     },
     {
@@ -99770,23 +100167,76 @@
         "call:ai/streaming_json_parser.go#StreamingJSONParser.Append"
       ],
       "evidence": [
-        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi"
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
       ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#StreamingJsonParser::property:snapshot",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a7b9a0170046f980d39ec752bc64d7dcc52c50e3cb4f9b7e486905bf767c2837"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a7b9a0170046f980d39ec752bc64d7dcc52c50e3cb4f9b7e486905bf767c2837",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::property:snapshot is Go ai/streaming_json_parser.go#StreamingJSONParser.Snapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#StreamingJsonParser::property:snapshot::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:87c95dc7fbd68ed8a2888df5b831546bc01bc50d1a0d0b67a3c7435b7b8bb411"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:87c95dc7fbd68ed8a2888df5b831546bc01bc50d1a0d0b67a3c7435b7b8bb411",
+      "rationale": "Derived by the interface gap detector: StreamingJsonParser::property:snapshot::call:0 is Go ai/streaming_json_parser.go#StreamingJSONParser.Snapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#StreamingJSONParser.Snapshot"
+      ],
+      "evidence": [
+        "test:ai/streaming_json_parser_oracle_test.go#TestStreamingJSONParserMatchesPi",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserKeepsVeryLargeOpenArraysLinearByLettingThePreviewLag",
+        "test:ai/streaming_json_parser_cost_test.go#TestStreamingJSONParserReadsDeepNestingWithoutRecursionAndInLinearTime"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:f100df9328cb4c55ffaf6260aee479bcb432da9507ebaf8ec7dfa2802f93ffe3"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:f100df9328cb4c55ffaf6260aee479bcb432da9507ebaf8ec7dfa2802f93ffe3",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream is Go ai/streaming_json_parser.go#ToolCallArgumentsStream (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/anthropic.go#anthropicProvider.parseAnthropicSSE"
+      ],
+      "evidence": [
+        "test:agent/proxy_stream_cost_test.go#TestProxyEventConverterToolArgumentsEqualTheWholeTextParseAfterEveryDelta",
+        "test:agent/proxy_streamed_blocks_test.go#TestStreamProxyDeltasEqualConcatenationAndWholeTextParse",
+        "test:agent/proxy_non_object_arguments_test.go#TestProxyNonObjectToolArgumentsFollowPi"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::construct:0",
@@ -99812,33 +100262,123 @@
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:append",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:5b7e9207b08156e5809a23bd0741fa0ec0a040902a31de5198336a64935e145a"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:5b7e9207b08156e5809a23bd0741fa0ec0a040902a31de5198336a64935e145a",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:append is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Append (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:append::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:af5792021bd626b4e65f3778222e802b7f687b5831cddea9e5ed6bfbec55da16"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:af5792021bd626b4e65f3778222e802b7f687b5831cddea9e5ed6bfbec55da16",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:append::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Append (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Append"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:finish",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:e0474332f3d836d10bacaf8fd26d598d6e61d1995f1728e05c97850fa57ca050"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:e0474332f3d836d10bacaf8fd26d598d6e61d1995f1728e05c97850fa57ca050",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:finish is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:finish::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:3fc6833bd40efb792cf24d7bacb5e571605dd8e673d6c7d41ad0856f5a5aba75"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:3fc6833bd40efb792cf24d7bacb5e571605dd8e673d6c7d41ad0856f5a5aba75",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:finish::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Finish"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:replace",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a6cc9f86ffe37c1a9c59bc870286c095c9f1f6626b25d6797986dfb23a079c78"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a6cc9f86ffe37c1a9c59bc870286c095c9f1f6626b25d6797986dfb23a079c78",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:replace is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:replace::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:1bb51c66a2ae6cbcd7e17a37ef7b1d971dd90710098ace095d2a5cffa1fc5538"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:1bb51c66a2ae6cbcd7e17a37ef7b1d971dd90710098ace095d2a5cffa1fc5538",
+      "rationale": "Derived by the interface gap detector: ToolCallArgumentsStream::property:replace::call:0 is Go ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ],
+      "evidence": [
+        "reach:ai/streaming_json_parser.go#ToolCallArgumentsStream.Replace"
+      ]
     },
     {
       "id": "pkg:ai/utils/streaming-json#ToolCallArgumentsStream::property:text",
@@ -99946,13 +100486,15 @@
     },
     {
       "id": "pkg:ai/utils/text#ownedSlice",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:9838a34aaba9c258c0a0eebf0458a67fc0796d7a189d20b632c3ef3deeece9f0"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:9838a34aaba9c258c0a0eebf0458a67fc0796d7a189d20b632c3ef3deeece9f0",
+      "rationale": "Pi f715a15c1 and d8d99950a add ownedSlice(text, start, end?) to utils/text.ts and to chord's delta entry: `${text.slice(start, end)} `.slice(0, -1), a copy of the slice. V8 represents a slice of 13 or more characters as a view that keeps the whole source string alive, so an append op or an error excerpt cut from a long string would retain that string; the copy ends the retention and returns the same string value. Go strings have no such view-versus-copy distinction visible to a program (a substring shares memory with its source, a retention Go code avoids with strings.Clone where it keeps a cut of a larger string: delta.Object.AppendText clones its text), and no Go behavior depends on it, so there is no Go function to port. Designed out as a JavaScript engine representation detail."
     },
     {
       "id": "pkg:ai/utils/text#ownedSlice::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:936f7b411c48a20cffc4e2105fb2f3f3d9021dc1dd6c07ae810b00d76876a97a"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:936f7b411c48a20cffc4e2105fb2f3f3d9021dc1dd6c07ae810b00d76876a97a",
+      "rationale": "Pi f715a15c1 and d8d99950a add ownedSlice(text, start, end?) to utils/text.ts and to chord's delta entry: `${text.slice(start, end)} `.slice(0, -1), a copy of the slice. V8 represents a slice of 13 or more characters as a view that keeps the whole source string alive, so an append op or an error excerpt cut from a long string would retain that string; the copy ends the retention and returns the same string value. Go strings have no such view-versus-copy distinction visible to a program (a substring shares memory with its source, a retention Go code avoids with strings.Clone where it keeps a cut of a larger string: delta.Object.AppendText clones its text), and no Go behavior depends on it, so there is no Go function to port. Designed out as a JavaScript engine representation detail."
     },
     {
       "id": "pkg:ai/utils/text#renderSystemMessageUpdate",
@@ -111611,13 +112153,47 @@
     },
     {
       "id": "pkg:chord/delta#appendText",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:2308e5e3eb6bb07aa7a80a1acfe955afb379c7f07255b8594d3351c65935ddb2"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:2308e5e3eb6bb07aa7a80a1acfe955afb379c7f07255b8594d3351c65935ddb2",
+      "rationale": "Derived by the interface gap detector: appendText is Go chord/delta/handles.go#AppendText (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/delta/handles.go#AppendText"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:chord/delta/handles.go#AppendText"
+      ],
+      "evidence": [
+        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs",
+        "test:chord/delta/append_text_test.go#TestAppendTextRejectsWhatACallerCanGetWrong",
+        "test:chord/delta/append_text_test.go#TestAppendTextAppendsInsideABlockTheSameChangeInsertedOrReplaced"
+      ]
     },
     {
       "id": "pkg:chord/delta#appendText::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:bba09a2ca367a5b44f330c87b26ff9b37bffd27f476bc1e5206ef78417e434e8"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:bba09a2ca367a5b44f330c87b26ff9b37bffd27f476bc1e5206ef78417e434e8",
+      "rationale": "Derived by the interface gap detector: appendText::call:0 is Go chord/delta/handles.go#AppendText (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/delta/handles.go#AppendText"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:chord/delta/handles.go#AppendText"
+      ],
+      "evidence": [
+        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs",
+        "test:chord/delta/append_text_test.go#TestAppendTextRejectsWhatACallerCanGetWrong",
+        "test:chord/delta/append_text_test.go#TestAppendTextAppendsInsideABlockTheSameChangeInsertedOrReplaced"
+      ]
     },
     {
       "id": "pkg:chord/delta#apply",
@@ -111899,8 +112475,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -111964,9 +112540,9 @@
         "call:chord/delta/tracker.go#Change.Prepare"
       ],
       "evidence": [
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
         "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs",
-        "test:chord/delta/tracker_delta_lifecycle_upstream_test.go#TestDeltaImmutableTrackerLifecycle",
-        "test:chord/delta/tracker_lifecycle_upstream_test.go#TestTrackerOverlayLifecycle"
+        "test:chord/delta/tracker_delta_lifecycle_upstream_test.go#TestDeltaImmutableTrackerLifecycle"
       ]
     },
     {
@@ -111986,9 +112562,9 @@
         "call:chord/delta/tracker.go#Change.Prepare"
       ],
       "evidence": [
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
         "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs",
-        "test:chord/delta/tracker_delta_lifecycle_upstream_test.go#TestDeltaImmutableTrackerLifecycle",
-        "test:chord/delta/tracker_lifecycle_upstream_test.go#TestTrackerOverlayLifecycle"
+        "test:chord/delta/tracker_delta_lifecycle_upstream_test.go#TestDeltaImmutableTrackerLifecycle"
       ]
     },
     {
@@ -112009,8 +112585,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -112479,13 +113055,15 @@
     },
     {
       "id": "pkg:chord/delta#ownedSlice",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:9838a34aaba9c258c0a0eebf0458a67fc0796d7a189d20b632c3ef3deeece9f0"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:9838a34aaba9c258c0a0eebf0458a67fc0796d7a189d20b632c3ef3deeece9f0",
+      "rationale": "Pi f715a15c1 and d8d99950a add ownedSlice(text, start, end?) to utils/text.ts and to chord's delta entry: `${text.slice(start, end)} `.slice(0, -1), a copy of the slice. V8 represents a slice of 13 or more characters as a view that keeps the whole source string alive, so an append op or an error excerpt cut from a long string would retain that string; the copy ends the retention and returns the same string value. Go strings have no such view-versus-copy distinction visible to a program (a substring shares memory with its source, a retention Go code avoids with strings.Clone where it keeps a cut of a larger string: delta.Object.AppendText clones its text), and no Go behavior depends on it, so there is no Go function to port. Designed out as a JavaScript engine representation detail."
     },
     {
       "id": "pkg:chord/delta#ownedSlice::call:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:936f7b411c48a20cffc4e2105fb2f3f3d9021dc1dd6c07ae810b00d76876a97a"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:936f7b411c48a20cffc4e2105fb2f3f3d9021dc1dd6c07ae810b00d76876a97a",
+      "rationale": "Pi f715a15c1 and d8d99950a add ownedSlice(text, start, end?) to utils/text.ts and to chord's delta entry: `${text.slice(start, end)} `.slice(0, -1), a copy of the slice. V8 represents a slice of 13 or more characters as a view that keeps the whole source string alive, so an append op or an error excerpt cut from a long string would retain that string; the copy ends the retention and returns the same string value. Go strings have no such view-versus-copy distinction visible to a program (a substring shares memory with its source, a retention Go code avoids with strings.Clone where it keeps a cut of a larger string: delta.Object.AppendText clones its text), and no Go behavior depends on it, so there is no Go function to port. Designed out as a JavaScript engine representation detail."
     },
     {
       "id": "pkg:chord/delta#Path",
@@ -112646,13 +113224,47 @@
     },
     {
       "id": "pkg:chord/delta#PendingOps",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:e00c7b77bfb76337dc6ce25da60bdab73f1dd3c197a8a53f2206d94b54bb8e2f"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:e00c7b77bfb76337dc6ce25da60bdab73f1dd3c197a8a53f2206d94b54bb8e2f",
+      "rationale": "Derived by the interface gap detector: PendingOps is Go chord/delta/pending.go#PendingOps (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/delta/pending.go#PendingOps"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:chord/watch_impl.go#NewWatch"
+      ],
+      "evidence": [
+        "test:chord/watch_upstream_test.go#TestWatchRetainsNeitherItsSourceNorItsListenerOnceEnded",
+        "test:chord/delta/pending_test.go#TestPendingOpsCapAccumulatesNothingOnceReplacedUntilTakenOrABatchStartingWithR",
+        "test:chord/delta/pending_test.go#TestPendingOpsCapCountsOpsAfterFolding"
+      ]
     },
     {
       "id": "pkg:chord/delta#PendingOps::construct:0",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:a64ee725ca2abc61d5bd61c8c975e1e23f4b05cd80d657f0dea34da749b79499"
+      "disposition": "ported",
+      "upstreamShapeHash": "sha256:a64ee725ca2abc61d5bd61c8c975e1e23f4b05cd80d657f0dea34da749b79499",
+      "rationale": "Derived by the interface gap detector: PendingOps::construct:0 is Go chord/delta/pending.go#PendingOps (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
+      "pigTargets": [
+        "chord/delta/pending.go#PendingOps"
+      ],
+      "layers": {
+        "behavior": "complete",
+        "production": "complete",
+        "shape": "complete"
+      },
+      "production": [
+        "call:chord/watch_impl.go#NewWatch"
+      ],
+      "evidence": [
+        "test:chord/watch_upstream_test.go#TestWatchRetainsNeitherItsSourceNorItsListenerOnceEnded",
+        "test:chord/delta/pending_test.go#TestPendingOpsCapAccumulatesNothingOnceReplacedUntilTakenOrABatchStartingWithR",
+        "test:chord/delta/pending_test.go#TestPendingOpsCapCountsOpsAfterFolding"
+      ]
     },
     {
       "id": "pkg:chord/delta#PendingOps::property:push",
@@ -112766,8 +113378,9 @@
     },
     {
       "id": "pkg:chord/delta#PendingTake",
-      "disposition": "pending",
-      "upstreamShapeHash": "sha256:214b78578b68f9b6ce15a86f11e4615a2555c7828041c73ae1b6cb6ba90207d8"
+      "disposition": "designed-out",
+      "upstreamShapeHash": "sha256:214b78578b68f9b6ce15a86f11e4615a2555c7828041c73ae1b6cb6ba90207d8",
+      "rationale": "delta/pending.ts PendingTake = {kind: 'ops', ops} | {kind: 'replace'} is a union alias of two object types discriminated by kind. Go has no unions: delta.PendingTake (chord/delta/pending.go) is the one struct of both variants (Replace true for 'replace', with nil Ops; false for 'ops', whose Ops are the folded ops), returned by PendingOps.Take, so the alias has no separate Go declaration. Designed out as a TypeScript union alias, as chord/delta#PathRef is; the PendingOps cap and fuzz tests read both variants."
     },
     {
       "id": "pkg:chord/delta#Prepared",
@@ -112988,8 +113601,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaPathAndPrototypeSafety"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113010,8 +113623,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaPathAndPrototypeSafety"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113032,8 +113645,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaPathAndPrototypeSafety"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113054,8 +113667,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113076,8 +113689,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113098,8 +113711,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113120,8 +113733,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaCanonicalStrings"
       ]
     },
     {
@@ -113208,8 +113821,8 @@
       ],
       "evidence": [
         "test:chord/delta/apply_immutable_upstream_test.go#TestCheckedImmutableOperationApplication",
-        "test:chord/delta/delta_upstream_test.go#TestDeltaPathAndPrototypeSafety",
-        "test:chord/delta/retention_upstream_test.go#TestDeltaTrackerRetentionAcrossGCJobs"
+        "test:chord/delta/apply_immutable_upstream_test.go#TestImmutableContainerCopiesKeepAnOwnProtoMemberAsData",
+        "test:chord/delta/delta_upstream_test.go#TestDeltaPathAndPrototypeSafety"
       ]
     },
     {
