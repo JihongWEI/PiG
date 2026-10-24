@@ -117363,8 +117363,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/deterministic_internal_test.go#TestDeterministicMessagesHaveUpstreamsJSONShape",
-        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames",
+        "test:codemode/deterministic_internal_test.go#TestDeterministicMessagesHaveUpstreamsJSONShape"
       ]
     },
     {
@@ -117385,8 +117385,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_protocol_test.go#TestWireRepliesAndRequestsHaveUpstreamsJSONShape"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames",
+        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes"
       ]
     },
     {
@@ -117691,9 +117691,9 @@
         "call:codemode/execution.go#execution.receive"
       ],
       "evidence": [
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
         "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsAreFinishedOnceTheyHaveTheirOutcome"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder"
       ]
     },
     {
@@ -117714,8 +117714,8 @@
       ],
       "evidence": [
         "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
+        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn"
       ]
     },
     {
@@ -117802,7 +117802,8 @@
         "call:durable/codemode/call.go#call.execute"
       ],
       "evidence": [
-        "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi"
+        "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -118504,8 +118505,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -118548,8 +118549,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -118637,8 +118638,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -118704,8 +118705,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -118726,8 +118727,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -119174,8 +119175,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero",
-        "test:codemode/declarations_test.go#TestMalformedRefPercentEncodingIsAnError"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero"
       ]
     },
     {
@@ -119329,9 +119330,9 @@
         "public-api:codemode/inline_consts.go#DefaultInterruptBudget"
       ],
       "evidence": [
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
         "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults",
-        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults",
-        "test:codemode/inline_consts_test.go#TestInlineConstantsArePis"
+        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults"
       ]
     },
     {
@@ -119376,7 +119377,7 @@
       "evidence": [
         "test:codemode/inlinechannel_test.go#TestAnInlineFirstSegmentDeliversItsResultBeforeAnExpiredDeadline",
         "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -119657,8 +119658,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -119722,8 +119723,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -119766,8 +119767,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -119788,8 +119789,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -120063,7 +120064,7 @@
       "evidence": [
         "test:codemode/remote_test.go#TestCloseWaitsForTheRemoteToReturn",
         "test:codemode/remote_test.go#TestTheRequestCarriesTheStartDataAndTheRequestedBudget",
-        "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -120788,7 +120789,8 @@
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds"
+        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -120810,7 +120812,8 @@
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds"
+        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -120871,7 +120874,8 @@
         "public-api:codemode/cloudflare/cloudflare.go#QuickJSWasm"
       ],
       "evidence": [
-        "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule"
+        "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsLimitsAreThoseOfPisCloudflareEntry"
       ]
     },
     {
@@ -120891,9 +120895,9 @@
         "call:codemode/execution.go#execution.deliver"
       ],
       "evidence": [
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
         "test:codemode/deterministic_test.go#TestDeterministicRunsMakeTheSameCallsAndOutputForTheSameStartSeedAndResults",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections",
-        "test:codemode/host_finish_deadline_test.go#TestACallCancelledByTheEndOfTheExecutionRecordsHowLongItRan"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections"
       ]
     },
     {
@@ -120934,9 +120938,9 @@
         "call:codemode/execution.go#execution.forwardCall"
       ],
       "evidence": [
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
         "test:codemode/deterministic_test.go#TestDeterministicRunsMakeTheSameCallsAndOutputForTheSameStartSeedAndResults",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections",
-        "test:codemode/host_finish_deadline_test.go#TestACallCancelledByTheEndOfTheExecutionRecordsHowLongItRan"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections"
       ]
     },
     {
@@ -120956,9 +120960,9 @@
         "call:codemode/execution.go#execution.deliver"
       ],
       "evidence": [
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
         "test:codemode/deterministic_test.go#TestDeterministicRunsMakeTheSameCallsAndOutputForTheSameStartSeedAndResults",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections",
-        "test:codemode/host_finish_deadline_test.go#TestACallCancelledByTheEndOfTheExecutionRecordsHowLongItRan"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections"
       ]
     },
     {
@@ -121712,8 +121716,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/deterministic_internal_test.go#TestDeterministicMessagesHaveUpstreamsJSONShape",
-        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames",
+        "test:codemode/deterministic_internal_test.go#TestDeterministicMessagesHaveUpstreamsJSONShape"
       ]
     },
     {
@@ -121734,8 +121738,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_protocol_test.go#TestWireRepliesAndRequestsHaveUpstreamsJSONShape"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames",
+        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes"
       ]
     },
     {
@@ -122040,9 +122044,9 @@
         "call:codemode/execution.go#execution.receive"
       ],
       "evidence": [
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
         "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsAreFinishedOnceTheyHaveTheirOutcome"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder"
       ]
     },
     {
@@ -122063,8 +122067,8 @@
       ],
       "evidence": [
         "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
+        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn"
       ]
     },
     {
@@ -122151,7 +122155,8 @@
         "call:durable/codemode/call.go#call.execute"
       ],
       "evidence": [
-        "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi"
+        "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -122554,8 +122559,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -122598,8 +122603,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -122621,7 +122626,7 @@
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults",
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectsLimitsCapEveryRequest"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -122643,7 +122648,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults",
-        "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange"
+        "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames"
       ]
     },
     {
@@ -122968,8 +122974,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero",
-        "test:codemode/declarations_test.go#TestMalformedRefPercentEncodingIsAnError"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero"
       ]
     },
     {
@@ -123076,8 +123082,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero",
-        "test:codemode/declarations_test.go#TestMalformedRefPercentEncodingIsAnError"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -123108,7 +123114,8 @@
         "public-api:codemode/cloudflare/cloudflare.go#CreateInlineSandbox"
       ],
       "evidence": [
-        "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule"
+        "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox"
       ]
     },
     {
@@ -123128,7 +123135,8 @@
         "public-api:codemode/cloudflare/cloudflare.go#CreateInlineSandbox"
       ],
       "evidence": [
-        "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule"
+        "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox"
       ]
     },
     {
@@ -123148,9 +123156,9 @@
         "public-api:codemode/inline_consts.go#DefaultInterruptBudget"
       ],
       "evidence": [
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
         "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults",
-        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults",
-        "test:codemode/inline_consts_test.go#TestInlineConstantsArePis"
+        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults"
       ]
     },
     {
@@ -123171,7 +123179,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults",
-        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults"
+        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults",
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsLimitsAreThoseOfPisCloudflareEntry"
       ]
     },
     {
@@ -123238,7 +123247,7 @@
       "evidence": [
         "test:codemode/inlinechannel_test.go#TestAnInlineFirstSegmentDeliversItsResultBeforeAnExpiredDeadline",
         "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -123519,8 +123528,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -123584,8 +123593,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -123628,8 +123637,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -123650,8 +123659,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -123785,7 +123794,7 @@
       "evidence": [
         "test:codemode/remote_test.go#TestCloseWaitsForTheRemoteToReturn",
         "test:codemode/remote_test.go#TestTheRequestCarriesTheStartDataAndTheRequestedBudget",
-        "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -124228,7 +124237,8 @@
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds"
+        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -124250,7 +124260,8 @@
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds"
+        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -124829,9 +124840,9 @@
         "call:codemode/execution.go#execution.deliver"
       ],
       "evidence": [
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
         "test:codemode/deterministic_test.go#TestDeterministicRunsMakeTheSameCallsAndOutputForTheSameStartSeedAndResults",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections",
-        "test:codemode/host_finish_deadline_test.go#TestACallCancelledByTheEndOfTheExecutionRecordsHowLongItRan"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections"
       ]
     },
     {
@@ -124872,9 +124883,9 @@
         "call:codemode/execution.go#execution.forwardCall"
       ],
       "evidence": [
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
         "test:codemode/deterministic_test.go#TestDeterministicRunsMakeTheSameCallsAndOutputForTheSameStartSeedAndResults",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections",
-        "test:codemode/host_finish_deadline_test.go#TestACallCancelledByTheEndOfTheExecutionRecordsHowLongItRan"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections"
       ]
     },
     {
@@ -124894,9 +124905,9 @@
         "call:codemode/execution.go#execution.deliver"
       ],
       "evidence": [
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
         "test:codemode/deterministic_test.go#TestDeterministicRunsMakeTheSameCallsAndOutputForTheSameStartSeedAndResults",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections",
-        "test:codemode/host_finish_deadline_test.go#TestACallCancelledByTheEndOfTheExecutionRecordsHowLongItRan"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsNumberCallsToGlobalsWithToolsAndAnswerErrorsAsRejections"
       ]
     },
     {
@@ -125650,8 +125661,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/deterministic_internal_test.go#TestDeterministicMessagesHaveUpstreamsJSONShape",
-        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames",
+        "test:codemode/deterministic_internal_test.go#TestDeterministicMessagesHaveUpstreamsJSONShape"
       ]
     },
     {
@@ -125672,8 +125683,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestTheObjectExecutesTheRequestAndReportsThroughTheExchange",
-        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_protocol_test.go#TestWireRepliesAndRequestsHaveUpstreamsJSONShape"
+        "test:codemode/cloudflare/golden_test.go#TestTheObjectsExecuteSendsThePiFrames",
+        "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes"
       ]
     },
     {
@@ -125978,9 +125989,9 @@
         "call:codemode/execution.go#execution.receive"
       ],
       "evidence": [
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
         "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsAreFinishedOnceTheyHaveTheirOutcome"
+        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder"
       ]
     },
     {
@@ -126001,8 +126012,8 @@
       ],
       "evidence": [
         "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhenTheTransportReordersRepliesSentInOrder"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
+        "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn"
       ]
     },
     {
@@ -126089,7 +126100,8 @@
         "call:durable/codemode/call.go#call.execute"
       ],
       "evidence": [
-        "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi"
+        "test:codemode/run_members_pi_test.go#TestRunOptionsMembersAndRunDeliverFinishedMatchPi",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -126492,8 +126504,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -126536,8 +126548,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -126820,8 +126832,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero",
-        "test:codemode/declarations_test.go#TestMalformedRefPercentEncodingIsAnError"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero"
       ]
     },
     {
@@ -126928,8 +126940,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero",
-        "test:codemode/declarations_test.go#TestMalformedRefPercentEncodingIsAnError"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/declarations_test.go#TestDeclarationOptionsDistinguishAbsentFromZero"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -126960,9 +126972,9 @@
         "public-api:codemode/inline_consts.go#DefaultInterruptBudget"
       ],
       "evidence": [
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi",
         "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults",
-        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults",
-        "test:codemode/inline_consts_test.go#TestInlineConstantsArePis"
+        "test:codemode/cloudflare/cloudflare_test.go#TestTheWorkerObjectHasTheSameDefaults"
       ]
     },
     {
@@ -127029,7 +127041,7 @@
       "evidence": [
         "test:codemode/inlinechannel_test.go#TestAnInlineFirstSegmentDeliversItsResultBeforeAnExpiredDeadline",
         "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -127310,8 +127322,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -127375,8 +127387,8 @@
       ],
       "evidence": [
         "test:codemode/baseline_memory_test.go#TestIdleBaselineMemoryStaysSmall",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation",
-        "test:codemode/deterministic_test.go#TestDeterministicRunsReportTheFingerprintBeforeAnyCallAndTheCallsIssuedAfterEachResult"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
       ]
     },
     {
@@ -127419,8 +127431,8 @@
       ],
       "evidence": [
         "test:codemode/bridge_test.go#TestReportsADuplicateCallIDAsASandboxError",
-        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi",
-        "test:codemode/inline_test.go#TestInlineSandboxCountsTheBudgetAcrossWaitsOnTools"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/inline_test.go#TestInlineSandboxChecksTheDeadlineBetweenTurnsLikePi"
       ]
     },
     {
@@ -127441,8 +127453,8 @@
       ],
       "evidence": [
         "test:codemode/cloudflare/cloudflare_test.go#TestCreateInlineSandboxRunsWithTheEntrysModule",
-        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept",
-        "test:codemode/custom_module_engine_test.go#TestSandboxesLoadingOneModuleShareOneCompilation"
+        "test:codemode/cloudflare/golden_test.go#TestCreateInlineSandboxResultsAreThoseOfPisCreateInlineCodemodeSandbox",
+        "test:codemode/custom_module_engine_test.go#TestAFailedCompileIsNotKept"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -127576,7 +127588,7 @@
       "evidence": [
         "test:codemode/remote_test.go#TestCloseWaitsForTheRemoteToReturn",
         "test:codemode/remote_test.go#TestTheRequestCarriesTheStartDataAndTheRequestedBudget",
-        "test:codemode/cloudflare/cloudflare_test.go#TestNewSandboxDurableObjectHasPisDefaults"
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ]
     },
     {
@@ -128019,7 +128031,8 @@
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds"
+        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -128041,7 +128054,8 @@
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestAVMThatIsToldTheSameResultNumberTwiceCrashes",
-        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds"
+        "test:codemode/remote_vm_test.go#TestServeRemoteStopsAComputingScriptWhenItsContextEnds",
+        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
