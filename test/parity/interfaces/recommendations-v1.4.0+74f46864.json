@@ -103437,7 +103437,7 @@
       "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "3 normalized-name Pig candidates are ambiguous."
+        "5 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
@@ -103448,7 +103448,9 @@
       ],
       "pigCandidates": [
         "go:github.com/MichaelKinsy/PiG/ai#Models.GetProviders",
+        "go:github.com/MichaelKinsy/PiG/coding#GraphModelRuntime.getProviders",
         "go:github.com/MichaelKinsy/PiG/coding#ModelRuntime.GetProviders",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#ModelRuntime.GetProviders",
         "go:github.com/MichaelKinsy/PiG/internal/codingagent#RequestAuthRuntime.GetProviders"
       ],
       "missingClosure": [
