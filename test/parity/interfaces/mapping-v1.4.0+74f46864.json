@@ -160884,11 +160884,11 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/extension/ui.go#UIContext.SetWidget"
+        "call:coding/session_graph_extension_runner_ui.go#GraphExtensionRunner.callUI"
       ],
       "evidence": [
         "test:coding/extension/ui_test.go#TestNoopUIContext_AllMethodsReturnUpstreamDefaults"
@@ -160904,11 +160904,11 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/extension/ui.go#UIContext.SetWidget"
+        "call:coding/session_graph_extension_runner_ui.go#GraphExtensionRunner.callUI"
       ],
       "evidence": [
         "test:coding/extension/ui_test.go#TestNoopUIContext_AllMethodsReturnUpstreamDefaults"
