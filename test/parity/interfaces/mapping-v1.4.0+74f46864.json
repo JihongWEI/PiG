@@ -208091,7 +208091,7 @@
       "evidence": [
         "test:durable/codemode/codemode_test.go#TestDurableCodeMode",
         "test:durable/codemode/describe_test.go#TestDescribeRendersTheSectionFromTheConversationsCallableToolsIntoTheSystemPrompt",
-        "test:durable/core/driver/harness_reports_core_test.go#TestReports"
+        "test:durable/codemode/lone_surrogate_tool_result_test.go#TestAToolResultWithALoneSurrogateKeepsItThroughTheHarnessAndTheEntry"
       ]
     },
     {
@@ -208113,7 +208113,7 @@
       "evidence": [
         "test:durable/codemode/codemode_test.go#TestDurableCodeMode",
         "test:durable/codemode/describe_test.go#TestDescribeRendersTheSectionFromTheConversationsCallableToolsIntoTheSystemPrompt",
-        "test:durable/core/driver/harness_reports_core_test.go#TestReports"
+        "test:durable/codemode/lone_surrogate_tool_result_test.go#TestAToolResultWithALoneSurrogateKeepsItThroughTheHarnessAndTheEntry"
       ]
     },
     {
@@ -208751,9 +208751,9 @@
         "call:durable/entries.go#DefineEntry"
       ],
       "evidence": [
+        "test:durable/codemode/lone_surrogate_tool_result_test.go#TestAToolResultWithALoneSurrogateKeepsItThroughTheHarnessAndTheEntry",
         "test:durable/core/driver/harness_tasks_port2_core_test.go#TestCoreTaskCommitsResultsWithEntriesKeepsMemosUntilTerminalAndRetiresDocuments",
-        "test:durable/entries_behavior_test.go#TestDefineEntryGuardsByKindAndDecodesTypedData",
-        "test:durable/examples/background_subagents_example_test.go#TestExample22SubagentBackground"
+        "test:durable/entries_behavior_test.go#TestDefineEntryGuardsByKindAndDecodesTypedData"
       ]
     },
     {
@@ -208773,9 +208773,9 @@
         "call:durable/entries.go#Entry.Is"
       ],
       "evidence": [
+        "test:durable/codemode/lone_surrogate_tool_result_test.go#TestAToolResultWithALoneSurrogateKeepsItThroughTheHarnessAndTheEntry",
         "test:durable/core/driver/harness_tasks_port2_core_test.go#TestCoreTaskCommitsResultsWithEntriesKeepsMemosUntilTerminalAndRetiresDocuments",
-        "test:durable/entries_behavior_test.go#TestDefineEntryGuardsByKindAndDecodesTypedData",
-        "test:durable/examples/background_subagents_example_test.go#TestExample22SubagentBackground"
+        "test:durable/entries_behavior_test.go#TestDefineEntryGuardsByKindAndDecodesTypedData"
       ]
     },
     {
@@ -208795,9 +208795,9 @@
         "call:durable/entries.go#Entry.Is"
       ],
       "evidence": [
+        "test:durable/codemode/lone_surrogate_tool_result_test.go#TestAToolResultWithALoneSurrogateKeepsItThroughTheHarnessAndTheEntry",
         "test:durable/core/driver/harness_tasks_port2_core_test.go#TestCoreTaskCommitsResultsWithEntriesKeepsMemosUntilTerminalAndRetiresDocuments",
-        "test:durable/entries_behavior_test.go#TestDefineEntryGuardsByKindAndDecodesTypedData",
-        "test:durable/examples/background_subagents_example_test.go#TestExample22SubagentBackground"
+        "test:durable/entries_behavior_test.go#TestDefineEntryGuardsByKindAndDecodesTypedData"
       ]
     },
     {
@@ -217913,9 +217913,9 @@
         "call:durable/harness/tool.go#AppendToolResult"
       ],
       "evidence": [
+        "test:durable/codemode/lone_surrogate_tool_result_test.go#TestAToolResultWithALoneSurrogateKeepsItThroughTheHarnessAndTheEntry",
         "test:durable/examples/chat_examples_test.go#TestExample16CodingTools",
-        "test:durable/examples/inbox_override_examples_test.go#TestExample29ToolOverride",
-        "test:durable/examples/lifecycle_examples_test.go#TestExample30ReloadAndRestart"
+        "test:durable/examples/inbox_override_examples_test.go#TestExample29ToolOverride"
       ]
     },
     {
@@ -219650,6 +219650,7 @@
       ],
       "evidence": [
         "test:durable/codemode/codemode_test.go#TestDurableCodeMode",
+        "test:durable/codemode/lone_surrogate_preview_test.go#TestAPreviewCutInsideASurrogatePairKeepsItsEscapeLikePi",
         "test:durable/codemode/models_test.go#TestCodeModeModels"
       ]
     },
@@ -219692,8 +219693,8 @@
       ],
       "evidence": [
         "test:durable/codemode/codemode_test.go#TestDurableCodeMode",
-        "test:durable/codemode/output_tool_test.go#TestDurableCodeModeOutputAndToolSearch",
-        "test:durable/codemode/models_test.go#TestCodeModeModelCallsRunInTheCallingPhasesTrace"
+        "test:durable/codemode/lone_surrogate_preview_test.go#TestAPreviewCutInsideASurrogatePairKeepsItsEscapeLikePi",
+        "test:durable/codemode/output_tool_test.go#TestDurableCodeModeOutputAndToolSearch"
       ]
     },
     {
