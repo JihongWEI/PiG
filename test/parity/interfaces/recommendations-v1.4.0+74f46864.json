@@ -17881,22 +17881,24 @@
     {
       "id": "pkg:ai/.#CreateProviderOptions",
       "upstreamShapeHash": "sha256:e01c76eb387084a5980be4dc000215279265f5254b8acf1b378e20ca88a4c735",
-      "recommendedDisposition": "partial",
+      "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "Exactly one normalized declared Go symbol name matches; package context, semantic shape, and production closure remain unverified."
+        "2 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
-        "pending",
+        "partial",
         "deferred",
         "designed-out",
         "divergence"
       ],
       "pigCandidates": [
-        "go:github.com/MichaelKinsy/PiG/ai#CreateProviderOptions"
+        "go:github.com/MichaelKinsy/PiG/ai#CreateProviderOptions",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#CreateProviderOptions"
       ],
       "missingClosure": [
+        "candidate-disambiguation",
         "shape-translation-review",
         "production-reachability",
         "required-layers",
@@ -38718,22 +38720,24 @@
     {
       "id": "pkg:ai/.#ProviderStreams",
       "upstreamShapeHash": "sha256:bd74b0a68af604bbb0e7007759edba32d2d48b776f8bdcc9e7dbc3282cb8cfd4",
-      "recommendedDisposition": "partial",
+      "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "Exactly one normalized declared Go symbol name matches; package context, semantic shape, and production closure remain unverified."
+        "2 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
-        "pending",
+        "partial",
         "deferred",
         "designed-out",
         "divergence"
       ],
       "pigCandidates": [
-        "go:github.com/MichaelKinsy/PiG/ai#ProviderStreams"
+        "go:github.com/MichaelKinsy/PiG/ai#ProviderStreams",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#ProviderStreams"
       ],
       "missingClosure": [
+        "candidate-disambiguation",
         "shape-translation-review",
         "production-reachability",
         "required-layers",
@@ -44204,7 +44208,7 @@
       "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "2 normalized-name Pig candidates are ambiguous."
+        "3 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
@@ -44215,7 +44219,8 @@
       ],
       "pigCandidates": [
         "go:github.com/MichaelKinsy/PiG/ai#CreateProvider",
-        "go:github.com/MichaelKinsy/PiG/coding/mcpext#createProvider"
+        "go:github.com/MichaelKinsy/PiG/coding/mcpext#createProvider",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#CreateProvider"
       ],
       "missingClosure": [
         "candidate-disambiguation",
@@ -74527,22 +74532,24 @@
     {
       "id": "pkg:ai/compat#CreateProviderOptions",
       "upstreamShapeHash": "sha256:e01c76eb387084a5980be4dc000215279265f5254b8acf1b378e20ca88a4c735",
-      "recommendedDisposition": "partial",
+      "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "Exactly one normalized declared Go symbol name matches; package context, semantic shape, and production closure remain unverified."
+        "2 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
-        "pending",
+        "partial",
         "deferred",
         "designed-out",
         "divergence"
       ],
       "pigCandidates": [
-        "go:github.com/MichaelKinsy/PiG/ai#CreateProviderOptions"
+        "go:github.com/MichaelKinsy/PiG/ai#CreateProviderOptions",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#CreateProviderOptions"
       ],
       "missingClosure": [
+        "candidate-disambiguation",
         "shape-translation-review",
         "production-reachability",
         "required-layers",
@@ -95532,22 +95539,24 @@
     {
       "id": "pkg:ai/compat#ProviderStreams",
       "upstreamShapeHash": "sha256:bd74b0a68af604bbb0e7007759edba32d2d48b776f8bdcc9e7dbc3282cb8cfd4",
-      "recommendedDisposition": "partial",
+      "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "Exactly one normalized declared Go symbol name matches; package context, semantic shape, and production closure remain unverified."
+        "2 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
-        "pending",
+        "partial",
         "deferred",
         "designed-out",
         "divergence"
       ],
       "pigCandidates": [
-        "go:github.com/MichaelKinsy/PiG/ai#ProviderStreams"
+        "go:github.com/MichaelKinsy/PiG/ai#ProviderStreams",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#ProviderStreams"
       ],
       "missingClosure": [
+        "candidate-disambiguation",
         "shape-translation-review",
         "production-reachability",
         "required-layers",
@@ -101324,7 +101333,7 @@
       "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "2 normalized-name Pig candidates are ambiguous."
+        "3 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
@@ -101335,7 +101344,8 @@
       ],
       "pigCandidates": [
         "go:github.com/MichaelKinsy/PiG/ai#CreateProvider",
-        "go:github.com/MichaelKinsy/PiG/coding/mcpext#createProvider"
+        "go:github.com/MichaelKinsy/PiG/coding/mcpext#createProvider",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#CreateProvider"
       ],
       "missingClosure": [
         "candidate-disambiguation",
@@ -107467,22 +107477,24 @@
     {
       "id": "pkg:ai/models#CreateProviderOptions",
       "upstreamShapeHash": "sha256:e01c76eb387084a5980be4dc000215279265f5254b8acf1b378e20ca88a4c735",
-      "recommendedDisposition": "partial",
+      "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "Exactly one normalized declared Go symbol name matches; package context, semantic shape, and production closure remain unverified."
+        "2 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
-        "pending",
+        "partial",
         "deferred",
         "designed-out",
         "divergence"
       ],
       "pigCandidates": [
-        "go:github.com/MichaelKinsy/PiG/ai#CreateProviderOptions"
+        "go:github.com/MichaelKinsy/PiG/ai#CreateProviderOptions",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#CreateProviderOptions"
       ],
       "missingClosure": [
+        "candidate-disambiguation",
         "shape-translation-review",
         "production-reachability",
         "required-layers",
@@ -112574,7 +112586,7 @@
       "recommendedDisposition": "pending",
       "confidence": "low",
       "basis": [
-        "2 normalized-name Pig candidates are ambiguous."
+        "3 normalized-name Pig candidates are ambiguous."
       ],
       "alternatives": [
         "ported",
@@ -112585,7 +112597,8 @@
       ],
       "pigCandidates": [
         "go:github.com/MichaelKinsy/PiG/ai#CreateProvider",
-        "go:github.com/MichaelKinsy/PiG/coding/mcpext#createProvider"
+        "go:github.com/MichaelKinsy/PiG/coding/mcpext#createProvider",
+        "go:github.com/MichaelKinsy/PiG/extensions/sdk#CreateProvider"
       ],
       "missingClosure": [
         "candidate-disambiguation",
