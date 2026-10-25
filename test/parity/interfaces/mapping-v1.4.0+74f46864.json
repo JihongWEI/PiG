@@ -138171,7 +138171,8 @@
       ],
       "evidence": [
         "test:coding/extension/builtin/codemode/store_oracle_test.go#TestStoreEntryDataKeepsUnpairedSurrogateKeys",
-        "test:coding/extension/builtin/codemode/details_store_test.go#TestStoreEntryDataAndFullOutputPathDetails"
+        "test:coding/extension/builtin/codemode/details_store_test.go#TestStoreEntryDataAndFullOutputPathDetails",
+        "test:ai/openai_tool_function_marshal_test.go#TestOpenAIToolFunctionEncodesAsItsMarshalJSON"
       ]
     },
     {
