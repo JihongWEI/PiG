@@ -158017,8 +158017,8 @@
       ],
       "evidence": [
         "test:coding/cli/builtin_extension_order_test.go#TestBuiltinLlamaRegistersItsNativeProviderAndCommandThroughTheLoader",
-        "test:coding/extension/runtime_state_test.go#TestBindProviderActionsDrainsTheNativeQueue",
-        "test:coding/extension/runtime_state_test.go#TestPendingNativeProviderRegistrationsExposeTheProviderObject"
+        "test:coding/extension/host/subprocess/provider_object_load_queue_test.go#TestProviderObjectRegisteredWhileLoadingIsQueuedForABoundRegistry",
+        "test:coding/extension/runtime_state_test.go#TestBindProviderActionsDrainsTheNativeQueue"
       ]
     },
     {
@@ -158040,7 +158040,7 @@
       "evidence": [
         "test:coding/extension/host/inproc/upstream_provider_queue_test.go#TestUpstreamRunnerProviderRegistration",
         "test:test/extension-conformance/node_extension_api_test.go#TestNodeProviderConfigWithImageAndClassifierModels",
-        "test:test/extension-conformance/python_extension_api_test.go#TestPythonSDKProviderConfigWithImageAndClassifierModels"
+        "test:test/extension-conformance/provider_registration_diagnostic_test.go#TestProviderRegistrationFailureIsADiagnosticAcrossSDKs"
       ]
     },
     {
@@ -158598,7 +158598,7 @@
       "evidence": [
         "test:coding/extension/host/inproc/upstream_provider_queue_test.go#TestRunnerProviderActionsOverrideRegistry",
         "test:coding/extension/host/inproc/upstream_provider_queue_test.go#TestUpstreamRunnerProviderRegistration",
-        "test:coding/extension/host/inproc/runtime_shared_state_test.go#TestBindCoreKeepsTheActionsAHostBoundToTheSharedRuntime"
+        "test:coding/cli/extension_host_wiring_guard_test.go#TestBuildFlushesTheExtensionHostProviderRegistrations"
       ]
     },
     {
@@ -158620,7 +158620,7 @@
       "evidence": [
         "test:coding/extension/host/inproc/upstream_provider_queue_test.go#TestRunnerProviderActionsOverrideRegistry",
         "test:coding/extension/host/inproc/upstream_provider_queue_test.go#TestUpstreamRunnerProviderRegistration",
-        "test:coding/extension/host/inproc/runtime_shared_state_test.go#TestBindCoreKeepsTheActionsAHostBoundToTheSharedRuntime"
+        "test:coding/cli/extension_host_wiring_guard_test.go#TestBuildFlushesTheExtensionHostProviderRegistrations"
       ]
     },
     {
@@ -170254,40 +170254,44 @@
       "id": "pkg:coding-agent/.#ModelRegistry::property:registerVirtualModel",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:e73fe86aff3d544584f5ae37e9a3227540a34eecc130a15bb93ca12d72c1239e",
-      "rationale": "ModelRegistry.registerVirtualModel is the Go method coding.ModelRegistry.RegisterVirtualModel; signature reviewed against the upstream declaration (a persistence or validation failure is the returned error; undefined is nil or the empty value); callers and tests attributed by go/types (methodrefs).",
+      "rationale": "Derived by the interface gap detector: ModelRegistry::property:registerVirtualModel is Go coding/virtual_models.go#ModelRegistry.RegisterVirtualModel (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "coding/virtual_models.go#ModelRegistry.RegisterVirtualModel"
       ],
       "layers": {
-        "shape": "complete",
+        "behavior": "complete",
         "production": "complete",
-        "behavior": "complete"
+        "shape": "complete"
       },
       "production": [
-        "call:coding/cli/extensions.go#flushExtensionHostVirtualModels"
+        "call:coding/virtual_models.go#ModelRegistry.RegisterVirtualModel"
       ],
       "evidence": [
-        "test:coding/cli/startup_virtual_model_test.go#TestSelectStartupModelLeavesTheVirtualCatalogEntryUnchanged"
+        "test:coding/cli/startup_virtual_model_test.go#TestSelectStartupModelLeavesTheVirtualCatalogEntryUnchanged",
+        "test:test/extension-conformance/node_sync_visibility_test.go#TestNodeContextAbortAbortsTheRunSignalInTheSameTick",
+        "test:test/extension-conformance/node_sync_visibility_test.go#TestNodeGetCommandsListsACommandRegisteredAfterLoad"
       ]
     },
     {
       "id": "pkg:coding-agent/.#ModelRegistry::property:registerVirtualModel::call:0",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:000d10b1661ebcf4d7c7b704ca1b5d7d5498076b58a31a4e2f4ae22ad147bc15",
-      "rationale": "ModelRegistry.registerVirtualModel is the Go method coding.ModelRegistry.RegisterVirtualModel; signature reviewed against the upstream declaration (a persistence or validation failure is the returned error; undefined is nil or the empty value); callers and tests attributed by go/types (methodrefs).",
+      "rationale": "Derived by the interface gap detector: ModelRegistry::property:registerVirtualModel::call:0 is Go coding/virtual_models.go#ModelRegistry.RegisterVirtualModel (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "coding/virtual_models.go#ModelRegistry.RegisterVirtualModel"
       ],
       "layers": {
-        "shape": "complete",
+        "behavior": "complete",
         "production": "complete",
-        "behavior": "complete"
+        "shape": "complete"
       },
       "production": [
-        "call:coding/cli/extensions.go#flushExtensionHostVirtualModels"
+        "call:coding/virtual_models.go#ModelRegistry.RegisterVirtualModel"
       ],
       "evidence": [
-        "test:coding/cli/startup_virtual_model_test.go#TestSelectStartupModelLeavesTheVirtualCatalogEntryUnchanged"
+        "test:coding/cli/startup_virtual_model_test.go#TestSelectStartupModelLeavesTheVirtualCatalogEntryUnchanged",
+        "test:test/extension-conformance/node_sync_visibility_test.go#TestNodeContextAbortAbortsTheRunSignalInTheSameTick",
+        "test:test/extension-conformance/node_sync_visibility_test.go#TestNodeGetCommandsListsACommandRegisteredAfterLoad"
       ]
     },
     {
