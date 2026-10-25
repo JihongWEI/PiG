@@ -140685,7 +140685,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:coding/create_agent_session.go#createAgentSessionOver"
+        "call:coding/cli/child_sessions.go#createChildSession"
       ],
       "evidence": [
         "test:coding/create_agent_session_test.go#TestCreateAgentSessionFromServicesForwardsTheSessionInputs"
@@ -186699,7 +186699,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:coding/cli/extension_login_preview_command.go#runExtensionLoginPreview"
+        "call:coding/cli/child_sessions.go#createChildSession"
       ],
       "evidence": [
         "test:coding/runner_model_registry_upstream_test.go#TestNewExtensionRunnerBindsItsConstructorArguments",
