@@ -138171,8 +138171,7 @@
       ],
       "evidence": [
         "test:coding/extension/builtin/codemode/store_oracle_test.go#TestStoreEntryDataKeepsUnpairedSurrogateKeys",
-        "test:coding/extension/builtin/codemode/details_store_test.go#TestStoreEntryDataAndFullOutputPathDetails",
-        "test:ai/openai_tool_function_marshal_test.go#TestOpenAIToolFunctionEncodesAsItsMarshalJSON"
+        "test:coding/extension/builtin/codemode/details_store_test.go#TestStoreEntryDataAndFullOutputPathDetails"
       ]
     },
     {
@@ -164050,7 +164049,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:coding/cli/builtin_extensions.go#nativeBuiltInExtensions"
+        "call:coding/extension/builtin/codemode_on.go#createCodemodeReference"
       ],
       "evidence": [
         "test:coding/cli/extension_set_upstream_test.go#TestBuiltInExtensionNamesListsOnlyBuiltinEntries",
