@@ -178712,7 +178712,7 @@
       "evidence": [
         "test:internal/packagemanager/resolve_oracle_test.go#TestResolveMatchesPiOnRandomFixtures",
         "test:coding/resource_loader_packages_test.go#TestMapSkillPathMapsOnlyAutoAndPackageDirectories",
-        "test:internal/packagemanager/builtin_extensions_test.go#TestResolveReportsTheBuiltinExtensionsOption"
+        "test:internal/codingagent/home_dir_test.go#TestNoHomeDirectoryLeavesTheProjectsAgentsSkillsTheProjectsOnly"
       ]
     },
     {
@@ -178756,7 +178756,7 @@
       "evidence": [
         "test:internal/packagemanager/resolve_oracle_test.go#TestResolveMatchesPiOnRandomFixtures",
         "test:coding/resource_loader_packages_test.go#TestMapSkillPathMapsOnlyAutoAndPackageDirectories",
-        "test:internal/packagemanager/builtin_extensions_test.go#TestResolveReportsTheBuiltinExtensionsOption"
+        "test:internal/codingagent/home_dir_test.go#TestNoHomeDirectoryLeavesTheProjectsAgentsSkillsTheProjectsOnly"
       ]
     },
     {
@@ -178778,7 +178778,7 @@
       "evidence": [
         "test:internal/packagemanager/resolve_oracle_test.go#TestResolveMatchesPiOnRandomFixtures",
         "test:coding/resource_loader_packages_test.go#TestMapSkillPathMapsOnlyAutoAndPackageDirectories",
-        "test:internal/packagemanager/builtin_extensions_test.go#TestResolveReportsTheBuiltinExtensionsOption"
+        "test:internal/codingagent/home_dir_test.go#TestNoHomeDirectoryLeavesTheProjectsAgentsSkillsTheProjectsOnly"
       ]
     },
     {
