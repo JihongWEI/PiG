@@ -171355,40 +171355,44 @@
       "id": "pkg:coding-agent/.#ModelRuntime::property:getAvailableSnapshot",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:2c111ffd530486ca4e30beb89c4694b027ecea96d0ac7b1ed1178b7130665c57",
-      "rationale": "ModelRuntime.getAvailableSnapshot is the Go method ModelRuntime.GetAvailableSnapshot; types reviewed against the upstream declaration; tests are upstream-ported files and attributed by go/types (methodrefs).",
+      "rationale": "Derived by the interface gap detector: ModelRuntime::property:getAvailableSnapshot is Go coding/model_availability.go#ModelRuntime.GetAvailableSnapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "coding/model_availability.go#ModelRuntime.GetAvailableSnapshot"
       ],
       "layers": {
-        "shape": "complete",
+        "behavior": "complete",
         "production": "complete",
-        "behavior": "complete"
+        "shape": "complete"
       },
       "production": [
-        "call:coding/cli/rpc_mode.go#rpcAvailableModels"
+        "call:coding/model_availability.go#ModelRuntime.GetAvailableSnapshot"
       ],
       "evidence": [
-        "test:coding/credential_refresh_7027_upstream_test.go#TestCredentialRefreshHang7027StalledLogin"
+        "test:coding/credential_refresh_7027_upstream_test.go#TestCredentialRefreshHang7027StalledLogin",
+        "test:test/extension-conformance/provider_stream_test.go#TestProviderProducersAcrossSDKs",
+        "test:coding/create_agent_session_test.go#TestCreateAgentSessionFromServicesSelectsTheInitialModelOrReportsNone"
       ]
     },
     {
       "id": "pkg:coding-agent/.#ModelRuntime::property:getAvailableSnapshot::call:0",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:eda778942dc1e664e85130af1626407040a09ba01b0e9dfb975508ef3fc29f92",
-      "rationale": "ModelRuntime.getAvailableSnapshot is the Go method ModelRuntime.GetAvailableSnapshot; types reviewed against the upstream declaration; tests are upstream-ported files and attributed by go/types (methodrefs).",
+      "rationale": "Derived by the interface gap detector: ModelRuntime::property:getAvailableSnapshot::call:0 is Go coding/model_availability.go#ModelRuntime.GetAvailableSnapshot (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "coding/model_availability.go#ModelRuntime.GetAvailableSnapshot"
       ],
       "layers": {
-        "shape": "complete",
+        "behavior": "complete",
         "production": "complete",
-        "behavior": "complete"
+        "shape": "complete"
       },
       "production": [
-        "call:coding/cli/rpc_mode.go#rpcAvailableModels"
+        "call:coding/model_availability.go#ModelRuntime.GetAvailableSnapshot"
       ],
       "evidence": [
-        "test:coding/credential_refresh_7027_upstream_test.go#TestCredentialRefreshHang7027StalledLogin"
+        "test:coding/credential_refresh_7027_upstream_test.go#TestCredentialRefreshHang7027StalledLogin",
+        "test:test/extension-conformance/provider_stream_test.go#TestProviderProducersAcrossSDKs",
+        "test:coding/create_agent_session_test.go#TestCreateAgentSessionFromServicesSelectsTheInitialModelOrReportsNone"
       ]
     },
     {
@@ -176711,7 +176715,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:internal/codingagent/provider_registration_validation.go#ModelRegistry.validateExtensionRegistration"
+        "call:coding/services.go#registerHarnessTestFaux"
       ],
       "evidence": [
         "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackPanicIsRequestError",
@@ -176729,14 +176733,16 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/extension/provider.go#ProviderConfig.APIKey"
+        "call:coding/services.go#registerHarnessTestFaux"
       ],
       "evidence": [
-        "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackServesOnlyItsAPI"
+        "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackPanicIsRequestError",
+        "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackServesOnlyItsAPI",
+        "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCustomStreamUpstream"
       ]
     },
     {
@@ -176773,7 +176779,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:internal/codingagent/native_provider.go#ModelRegistry.RegisterNativeProvider"
+        "call:coding/services.go#registerHarnessTestFaux"
       ],
       "evidence": [
         "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackPanicIsRequestError",
@@ -176861,7 +176867,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:internal/codingagent/model_registry.go#providerConfigFromRegistration"
+        "call:coding/services.go#registerHarnessTestFaux"
       ],
       "evidence": [
         "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackPanicIsRequestError",
@@ -176973,7 +176979,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:internal/codingagent/model_registry.go#providerConfigFromRegistration"
+        "call:coding/services.go#registerHarnessTestFaux"
       ],
       "evidence": [
         "test:coding/custom_provider_stream_upstream_test.go#TestRegisteredProviderCallbackPanicIsRequestError",
