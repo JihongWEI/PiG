@@ -118814,7 +118814,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:durable/codemode/call.go#call.commitQueued"
+        "call:durable/codemode/call.go#call.commit"
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
@@ -120703,8 +120703,8 @@
       ],
       "evidence": [
         "test:codemode/inlinechannel_test.go#TestAnInlineFirstSegmentDeliversItsResultBeforeAnExpiredDeadline",
-        "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors",
-        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
+        "test:codemode/inlinechannel_test.go#TestAnInlineLaterSegmentDeliversItsResultBeforeAnExpiredDeadline",
+        "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors"
       ]
     },
     {
@@ -123167,7 +123167,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:durable/codemode/call.go#call.commitQueued"
+        "call:durable/codemode/call.go#call.commit"
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
@@ -124573,8 +124573,8 @@
       ],
       "evidence": [
         "test:codemode/inlinechannel_test.go#TestAnInlineFirstSegmentDeliversItsResultBeforeAnExpiredDeadline",
-        "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors",
-        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
+        "test:codemode/inlinechannel_test.go#TestAnInlineLaterSegmentDeliversItsResultBeforeAnExpiredDeadline",
+        "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors"
       ]
     },
     {
@@ -127112,7 +127112,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:durable/codemode/call.go#call.commitQueued"
+        "call:durable/codemode/call.go#call.commit"
       ],
       "evidence": [
         "test:codemode/deterministic_test.go#TestDeterministicRunsApplyResultsInSeqOrderWhateverOrderTheyAreDeliveredIn",
@@ -128367,8 +128367,8 @@
       ],
       "evidence": [
         "test:codemode/inlinechannel_test.go#TestAnInlineFirstSegmentDeliversItsResultBeforeAnExpiredDeadline",
-        "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors",
-        "test:codemode/wire_oracle_test.go#TestWireBehaviorMatchesPi"
+        "test:codemode/inlinechannel_test.go#TestAnInlineLaterSegmentDeliversItsResultBeforeAnExpiredDeadline",
+        "test:codemode/resources_linux_test.go#TestConcurrentInlineExecutionsReturnMemoryAndDescriptors"
       ]
     },
     {
