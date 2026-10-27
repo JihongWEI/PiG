@@ -215022,8 +215022,8 @@
       ],
       "evidence": [
         "test:durable/core/driver/harness_blocked_core_test.go#TestBlockedTasks",
-        "test:durable/core/driver/harness_nested_core_test.go#TestCoreABrokenStructuredOutputOfAModelIssuedCallIsReported",
-        "test:durable/core/driver/harness_reports_core_test.go#TestReports"
+        "test:durable/core/driver/harness_inspect_core_test.go#TestCoreInspectDerivesEveryLiveTasksStateWithoutRunningTaskCode",
+        "test:durable/core/driver/harness_nested_core_test.go#TestCoreABrokenStructuredOutputOfAModelIssuedCallIsReported"
       ]
     },
     {
@@ -215044,8 +215044,8 @@
       ],
       "evidence": [
         "test:durable/core/driver/harness_blocked_core_test.go#TestBlockedTasks",
-        "test:durable/core/driver/harness_reports_core_test.go#TestReports",
-        "test:durable/harness/harness_tasks_recovery_test.go#TestDefinitionHandover"
+        "test:durable/core/driver/harness_inspect_core_test.go#TestCoreInspectDerivesEveryLiveTasksStateWithoutRunningTaskCode",
+        "test:durable/core/driver/harness_reports_core_test.go#TestReports"
       ]
     },
     {
