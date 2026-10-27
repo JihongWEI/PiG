@@ -238807,7 +238807,8 @@
       ],
       "evidence": [
         "test:env/connection_request_test.go#TestConnectionRequestSendsPayloadsAndReportsTheAnsweringSession",
-        "test:env/connection_request_test.go#TestReplyCarriesTheFramePayloadOfAPread"
+        "test:env/connection_request_test.go#TestReplyCarriesTheFramePayloadOfAPread",
+        "test:env/frame_limit_test.go#TestRequestOverTheFrameLimitFailsWithoutReachingTheDaemon"
       ]
     },
     {
