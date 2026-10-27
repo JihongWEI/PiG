@@ -167,11 +167,10 @@ func thinkingMaxLevelForEntry(entry icodingagent.ModelEntry) ai.ThinkingLevel {
 	return ai.ThinkingLevel(levels[len(levels)-1])
 }
 
+// lookupGeneratedModel matches only providerID's own catalog: a bare-id match would give an unregistered
+// provider's model another provider's API and base URL (litellm/gpt-6-astra took azure's azure-openai-responses).
 func lookupGeneratedModel(providerID, modelID string) (*ai.GeneratedModel, bool) {
-	if generated, ok := ai.LookupModel(providerID + "/" + modelID); ok {
-		return generated, true
-	}
-	return ai.LookupModel(modelID)
+	return ai.LookupModelExact(providerID + "/" + modelID)
 }
 
 // buildProviderForEntry builds the provider for entry. A non-empty explicitKey
