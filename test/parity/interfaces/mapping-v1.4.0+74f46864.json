@@ -140685,7 +140685,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:coding/create_agent_session.go#createAgentSessionOver"
+        "call:coding/cli/child_sessions.go#createChildSession"
       ],
       "evidence": [
         "test:coding/create_agent_session_test.go#TestCreateAgentSessionFromServicesForwardsTheSessionInputs"
@@ -160883,11 +160883,11 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/extension/ui.go#UIContext.SetWidget"
+        "call:coding/session_graph_extension_runner_ui.go#GraphExtensionRunner.callUI"
       ],
       "evidence": [
         "test:coding/extension/ui_test.go#TestNoopUIContext_AllMethodsReturnUpstreamDefaults"
@@ -160903,11 +160903,11 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/extension/ui.go#UIContext.SetWidget"
+        "call:coding/session_graph_extension_runner_ui.go#GraphExtensionRunner.callUI"
       ],
       "evidence": [
         "test:coding/extension/ui_test.go#TestNoopUIContext_AllMethodsReturnUpstreamDefaults"
@@ -164049,7 +164049,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:coding/cli/builtin_extensions.go#nativeBuiltInExtensions"
+        "call:coding/extension/builtin/codemode_on.go#createCodemodeReference"
       ],
       "evidence": [
         "test:coding/cli/extension_set_upstream_test.go#TestBuiltInExtensionNamesListsOnlyBuiltinEntries",
@@ -168000,9 +168000,9 @@
         "call:coding/mcpext/command.go#Extension.openURL"
       ],
       "evidence": [
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpUpdateConfigAndOpenURLWire",
         "test:coding/mcpext/command_test.go#TestMcpFactoryRegistersTheCommand",
-        "test:coding/mcpext/command_test.go#TestMcpLoadConfigReceivesTheHandlersExtensionContext",
-        "test:coding/mcpext/command_test.go#TestMcpToolCallPassesTheInputInItsMemberOrderToReachesTools"
+        "test:coding/mcpext/command_test.go#TestMcpLoadConfigReceivesTheHandlersExtensionContext"
       ]
     },
     {
@@ -168112,7 +168112,7 @@
       "evidence": [
         "test:coding/mcpext/oauth_signin_internal_test.go#TestSignInNoticeShowsThePlainAuthorizationURL",
         "test:coding/mcpext/sign_in_link_internal_test.go#TestMcpLoginNoticeShowsThePlainSignInURL",
-        "test:coding/mcp_oauth_session_upstream_test.go#TestAgentSessionMCPOAuthAcceptsAPastedRedirectURLWhenTheBrowserCannotReachTheCallback"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpUpdateConfigAndOpenURLWire"
       ]
     },
     {
@@ -168154,9 +168154,9 @@
         "call:coding/mcpext/extension.go#Extension.saveConfig"
       ],
       "evidence": [
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpUpdateConfigAndOpenURLWire",
         "test:coding/mcpext/command_test.go#TestMcpCommandAsksWhichServerWhenSeveralQualify",
-        "test:coding/mcpext/command_test.go#TestMcpCommandCompletions",
-        "test:coding/mcpext/command_test.go#TestMcpCommandCompletionsSplitOnJavaScriptWhitespace"
+        "test:coding/mcpext/command_test.go#TestMcpCommandCompletions"
       ]
     },
     {
@@ -168377,11 +168377,11 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/mcpext/runtime.go#TransportFactory"
+        "call:coding/session_graph_mcp.go#graphMcpTransportFactory"
       ],
       "evidence": [
         "test:coding/mcpext/connection_test.go#TestMCPConnectionsCallTheTransportFactoryWithEntryCwdAndAuthProvider"
@@ -168397,11 +168397,11 @@
       ],
       "layers": {
         "behavior": "complete",
-        "production": "public-api-tested",
+        "production": "complete",
         "shape": "complete"
       },
       "production": [
-        "public-api:coding/mcpext/runtime.go#TransportFactory"
+        "call:coding/session_graph_mcp.go#graphMcpTransportFactory"
       ],
       "evidence": [
         "test:coding/mcpext/connection_test.go#TestMCPConnectionsCallTheTransportFactoryWithEntryCwdAndAuthProvider"
@@ -186709,7 +186709,7 @@
         "shape": "complete"
       },
       "production": [
-        "call:coding/cli/extension_login_preview_command.go#runExtensionLoginPreview"
+        "call:coding/cli/child_sessions.go#createChildSession"
       ],
       "evidence": [
         "test:coding/runner_model_registry_upstream_test.go#TestNewExtensionRunnerBindsItsConstructorArguments",
@@ -244103,8 +244103,8 @@
       ],
       "evidence": [
         "test:coding/mcpext/connection_test.go#TestMCPConnectionsRetriesResourceReadsButNotToolCallsAfterATransientHTTPError",
-        "test:coding/mcpext/command_test.go#TestMcpToolCallPassesTheInputInItsMemberOrderToReachesTools",
-        "test:coding/mcpext/connection_test.go#TestMCPConnectionsAppendsServerLogMessagesToTheLogFile"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy",
+        "test:coding/mcpext/command_test.go#TestMcpToolCallPassesTheInputInItsMemberOrderToReachesTools"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -244112,7 +244112,7 @@
       "id": "pkg:mcp/.#McpTransport::property:close",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:224a331c8b3e5b8db8f0ed62fadfe68cc6c41e65f8bf7ffb1374a3d41303eed7",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:close is Go mcp/transport.go#Transport.Close (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:close is Go mcp/transport.go#Transport.Close (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.Close"
       ],
@@ -244125,7 +244125,7 @@
         "call:mcp/client.go#Client.Close"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.Close"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -244133,7 +244133,7 @@
       "id": "pkg:mcp/.#McpTransport::property:close::call:0",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:4016e58fe8d19c1878838481adfefa1484c3b03881840f594c0670e3a6202013",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:close::call:0 is Go mcp/transport.go#Transport.Close (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:close::call:0 is Go mcp/transport.go#Transport.Close (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.Close"
       ],
@@ -244146,7 +244146,7 @@
         "call:mcp/client.go#Client.Close"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.Close"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -244154,7 +244154,7 @@
       "id": "pkg:mcp/.#McpTransport::property:onClose",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:e02591139127230ad3860dcd7aa2b6ff0dfc09fbe03569344669a2a656cacbbb",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:onClose is Go mcp/transport.go#Transport.OnClose (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:onClose is Go mcp/transport.go#Transport.OnClose (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.OnClose"
       ],
@@ -244167,14 +244167,14 @@
         "call:mcp/client.go#Client.Connect"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.Connect"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ]
     },
     {
       "id": "pkg:mcp/.#McpTransport::property:onClose::call:0",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:b364cbef7d8fecac454b434ba272a31ee36f1dd372e9155012218622ae9ed251",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:onClose::call:0 is Go mcp/transport.go#Transport.OnClose (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:onClose::call:0 is Go mcp/transport.go#Transport.OnClose (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.OnClose"
       ],
@@ -244187,7 +244187,7 @@
         "call:mcp/client.go#Client.Connect"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.Connect"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ]
     },
     {
@@ -244234,7 +244234,7 @@
       "id": "pkg:mcp/.#McpTransport::property:onMessage",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:79986cedb0777b46cb43ea50e4a1b97875337afa9a714b47e0dffe9f8fd2e84c",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:onMessage is Go mcp/transport.go#Transport.OnMessage (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:onMessage is Go mcp/transport.go#Transport.OnMessage (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.OnMessage"
       ],
@@ -244247,14 +244247,14 @@
         "call:mcp/client.go#Client.Connect"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.Connect"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ]
     },
     {
       "id": "pkg:mcp/.#McpTransport::property:onMessage::call:0",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:344fccbfb52c965e729ab7ef61d795d225e8be97501792a8b43266d0b26edf10",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:onMessage::call:0 is Go mcp/transport.go#Transport.OnMessage (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:onMessage::call:0 is Go mcp/transport.go#Transport.OnMessage (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.OnMessage"
       ],
@@ -244267,7 +244267,7 @@
         "call:mcp/client.go#Client.Connect"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.Connect"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ]
     },
     {
@@ -244336,7 +244336,7 @@
       "id": "pkg:mcp/.#McpTransport::property:start",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:9d7cf3e7616bf0551abc2b837d09f9ed36d75c42515a4b7eb32995baaabf64f7",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:start is Go mcp/transport.go#Transport.Start (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:start is Go mcp/transport.go#Transport.Start (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.Start"
       ],
@@ -244349,7 +244349,7 @@
         "call:mcp/client.go#Client.initialize"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.initialize"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
@@ -244357,7 +244357,7 @@
       "id": "pkg:mcp/.#McpTransport::property:start::call:0",
       "disposition": "ported",
       "upstreamShapeHash": "sha256:4016e58fe8d19c1878838481adfefa1484c3b03881840f594c0670e3a6202013",
-      "rationale": "Derived by the interface gap detector: McpTransport::property:start::call:0 is Go mcp/transport.go#Transport.Start (name rule N1), every shape rule holds, and it is exercised by a function reachable from cmd/pig. The row is re-derived on every run of make interface-gaps-update.",
+      "rationale": "Derived by the interface gap detector: McpTransport::property:start::call:0 is Go mcp/transport.go#Transport.Start (name rule N1), every shape rule holds, and it is exercised by an asserting Go test. The row is re-derived on every run of make interface-gaps-update.",
       "pigTargets": [
         "mcp/transport.go#Transport.Start"
       ],
@@ -244370,7 +244370,7 @@
         "call:mcp/client.go#Client.initialize"
       ],
       "evidence": [
-        "reach:mcp/client.go#Client.initialize"
+        "test:coding/session_graph_mcp_test.go#TestGraphMcpTransportProxy"
       ],
       "asyncContract": "An awaited Promise is a blocking Go call that returns the value or error; AbortSignal is the context.Context argument; no detached goroutine."
     },
