@@ -10,7 +10,7 @@ import (
 // A model id another provider catalogs must not lend that provider's API to an extension provider's model.
 func TestBuildModelIgnoresOtherProvidersCatalog(t *testing.T) {
 	if _, ok := ai.LookupModelExact("azure/gpt-6-astra"); !ok {
-		t.Skip("catalog no longer has azure/gpt-6-astra")
+		t.Fatal("the generated catalog no longer has azure/gpt-6-astra: pick another model id that one provider catalogs and the test's extension provider does not")
 	}
 	services := newTestServices(t)
 	if err := services.Registry().RegisterExtensionProvider("proxy", extension.ProviderConfig{BaseURL: "http://127.0.0.1:1/v1", API: ai.APIOpenAIResponses, APIKey: "test-key"}); err != nil {

@@ -3748,14 +3748,14 @@ Entries are listed by ID. The page carries no totals, so a pull request that add
 **An extension provider's model that another provider also catalogs, such as `gpt-6-astra` under `azure`, no…**
 
 - **Source:** PiG's own defect
-- **Symptom:** An extension provider's model that another provider also catalogs, such as `gpt-6-astra` under `azure`, no longer takes that provider's API when it is built before its own provider registers (`LiteLLM model gpt-6-astra declares unsupported protocol "azure-openai-responses"`).
+- **Symptom:** Such a model took the other provider's API and the turn failed (`LiteLLM model gpt-6-astra declares unsupported protocol "azure-openai-responses"`).
 - **Root cause:** Not recorded.
-- **User impact:** Behavior differed from Pi
+- **User impact:** An operation failed or was rejected
 - **Platform:** All platforms
 - **Fixed in:** Unreleased
 - **Fix commits:** `366ae8eb45` (2026-10-28)
 - **Tests:** `coding/build_model_catalog_scope_test.go::TestBuildModelIgnoresOtherProvidersCatalog`
-- **Release note:** An extension provider's model that another provider also catalogs, such as `gpt-6-astra` under `azure`, no longer takes that provider's API when it is built before its own provider registers (`LiteLLM model gpt-6-astra declares unsupported protocol "azure-openai-responses"`). `BuildModel` now matches only the requested provider's catalog, as the CLI's startup resolution already did.
+- **Release note:** An extension provider's model that another provider also catalogs, such as `gpt-6-astra` under `azure`, no longer takes that provider's API when it is built before its own provider registers. Before this fix, such a model took the other provider's API and the turn failed (`LiteLLM model gpt-6-astra declares unsupported protocol "azure-openai-responses"`). `BuildModel` now matches only the requested provider's catalog, as the CLI's startup resolution already did.
 
 ### BF-369b1e1
 
