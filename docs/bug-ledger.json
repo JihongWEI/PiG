@@ -24742,6 +24742,29 @@
       ]
     },
     {
+      "id": "BF-ac2fd77",
+      "title": "Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked…",
+      "symptom": "Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked dependency performs reflection-based method lookup.",
+      "rootCause": "Store reflect.Type in a named field so cached ordered JSON metadata does not expose forwarding methods that can trigger broad linker method retention. Add a method-set regression and embedded-field/cache behavior coverage.",
+      "rootCauseSource": "commit",
+      "userImpact": "Wrong output or ordering",
+      "platform": "All platforms",
+      "class": "own",
+      "fixedIn": "Unreleased",
+      "releaseNote": "Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked dependency performs reflection-based method lookup.",
+      "origin": "release note",
+      "commits": [
+        {
+          "hash": "ac2fd77c1c",
+          "date": "2026-10-29"
+        }
+      ],
+      "tests": [
+        "durable/internal/ordered/ordered_test.go::TestFieldMetadataDoesNotPromoteReflectTypeMethods",
+        "durable/internal/ordered/ordered_test.go::TestRestoreEmbeddedFieldsAndCachedMetadata"
+      ]
+    },
+    {
       "id": "BF-ac6fcea",
       "title": "A `session_start` handler that calls `ctx.shutdown()` during `/reload` ends the session and exits 0, as Pi…",
       "symptom": "A `session_start` handler that calls `ctx.shutdown()` during `/reload` ends the session and exits 0, as Pi does, instead of leaving the reload screen up.",

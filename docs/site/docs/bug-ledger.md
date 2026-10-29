@@ -847,6 +847,7 @@ Entries are listed by ID. The page carries no totals, so a pull request that add
 | [BF-ab1d070-2](#bf-ab1d070-2) | A script that ends in its first run while a journaled tool call replays after a restart no longer shows that… | PiG's own defect | All platforms | Unreleased |
 | [BF-ab5be97](#bf-ab5be97) | Long streamed answers render each frame faster: the Markdown view re-wraps and re-renders only the lines and… | PiG's own defect | All platforms | 0.5.0 |
 | [BF-ac0dc3b](#bf-ac0dc3b) | An empty list item ends its list: a following unindented line is no longer taken for its lazy continuation… | PiG's own defect | All platforms | 0.5.0 |
+| [BF-ac2fd77](#bf-ac2fd77) | Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked… | PiG's own defect | All platforms | Unreleased |
 | [BF-ac6fcea](#bf-ac6fcea) | A `session_start` handler that calls `ctx.shutdown()` during `/reload` ends the session and exits 0, as Pi… | PiG's own defect | All platforms | 0.5.0 |
 | [BF-aca35e7](#bf-aca35e7) | In print and JSON mode, a Node extension no longer runs a timer or other callback between a prompt's last… | PiG's own defect | All platforms | 0.5.0 |
 | [BF-ad49f9f](#bf-ad49f9f) | `pig status` no longer reports a shared extension name as an unhealthy duplicate | PiG's own defect | All platforms | Unreleased |
@@ -12748,6 +12749,20 @@ Entries are listed by ID. The page carries no totals, so a pull request that add
 - **Fix commits:** `ac0dc3bee4` (2026-10-10), `cdf0be76e4` (2026-10-10)
 - **Tests:** `tui/markdown_render_oracle_test.go::TestMarkdownRenderMatchesPi`
 - **Release note:** An empty list item ends its list: a following unindented line is no longer taken for its lazy continuation, and spaces ending a list's last line render the empty row Pi's space token gives.
+
+### BF-ac2fd77
+
+**Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked…**
+
+- **Source:** PiG's own defect
+- **Symptom:** Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked dependency performs reflection-based method lookup.
+- **Root cause:** Store reflect.Type in a named field so cached ordered JSON metadata does not expose forwarding methods that can trigger broad linker method retention. Add a method-set regression and embedded-field/cache behavior coverage.
+- **User impact:** Wrong output or ordering
+- **Platform:** All platforms
+- **Fixed in:** Unreleased
+- **Fix commits:** `ac2fd77c1c` (2026-10-29)
+- **Tests:** `durable/internal/ordered/ordered_test.go::TestFieldMetadataDoesNotPromoteReflectTypeMethods`, `durable/internal/ordered/ordered_test.go::TestRestoreEmbeddedFieldsAndCachedMetadata`
+- **Release note:** Avoid retaining unrelated exported methods through Durable's ordered JSON field metadata when a linked dependency performs reflection-based method lookup.
 
 ### BF-ac6fcea
 
